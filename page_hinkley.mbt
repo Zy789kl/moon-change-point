@@ -2,9 +2,9 @@
 /// `PageHinkley` implements the Page-Hinkley test for online change point detection.
 pub struct PageHinkley {
   mut target_mean : Double
-  mut control_limit : Double
-  mut delta : Double
-  mut alpha : Double
+  control_limit : Double
+  delta : Double
+  alpha : Double
   mut sum : Double
   mut min_sum : Double
   mut n : Int
