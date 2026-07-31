@@ -19,12 +19,12 @@ pub struct Bayesian {
 ///|
 /// Creates a new Bayesian Online Change Point Detector.
 pub fn Bayesian::new(
-  hazard_rate~ : Double = 0.01,
-  mu0~ : Double = 0.0,
-  kappa0~ : Double = 1.0,
-  alpha0~ : Double = 1.0,
-  beta0~ : Double = 1.0,
-  max_run_length~ : Int = 100,
+  hazard_rate? : Double = 0.01,
+  mu0? : Double = 0.0,
+  kappa0? : Double = 1.0,
+  alpha0? : Double = 1.0,
+  beta0? : Double = 1.0,
+  max_run_length? : Int = 100,
 ) -> Bayesian {
   {
     hazard_rate,
