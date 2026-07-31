@@ -1,6 +1,6 @@
 ///|
 /// `DetectorType` represents the type of change point detector to use.
-pub enum DetectorType {
+pub(all) enum DetectorType {
   CusumDetector(Cusum)
   PageHinkleyDetector(PageHinkley)
   BayesianDetector(Bayesian)
