@@ -1,0 +1,7 @@
+// import {
+//   "qyt1234567/moon-change-point" @lib,
+// }
+
+options(
+  "is-main": true,
+)
