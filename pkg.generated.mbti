@@ -1,0 +1,67 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "hxiuzheng/moon-change-point"
+
+// Values
+
+// Errors
+
+// Types and methods
+pub struct Bayesian {
+  hazard_rate : Double
+  mut run_length_probs : Array[Double]
+  mut mu_t : Array[Double]
+  mut kappa_t : Array[Double]
+  mut alpha_t : Array[Double]
+  mut beta_t : Array[Double]
+  mu0 : Double
+  kappa0 : Double
+  alpha0 : Double
+  beta0 : Double
+  max_run_length : Int
+}
+pub fn Bayesian::new(hazard_rate? : Double, mu0? : Double, kappa0? : Double, alpha0? : Double, beta0? : Double, max_run_length? : Int) -> Self
+pub fn Bayesian::update(Self, Double) -> Double
+
+pub struct Cusum {
+  target_mean : Double
+  control_limit : Double
+  drift : Double
+  mut g_positive : Double
+  mut g_negative : Double
+  mut t : Int
+}
+pub fn Cusum::new(target_mean? : Double, control_limit? : Double, drift? : Double) -> Self
+pub fn Cusum::reset(Self) -> Unit
+pub fn Cusum::update(Self, Double) -> Bool
+
+pub struct Detector {
+  detector : DetectorType
+  mut suppression_count : Int
+  suppression_limit : Int
+}
+pub fn Detector::new(DetectorType, suppression_limit? : Int) -> Self
+pub fn Detector::update(Self, Double) -> Bool
+
+pub(all) enum DetectorType {
+  CusumDetector(Cusum)
+  PageHinkleyDetector(PageHinkley)
+  BayesianDetector(Bayesian)
+}
+
+pub struct PageHinkley {
+  mut target_mean : Double
+  control_limit : Double
+  delta : Double
+  alpha : Double
+  mut sum : Double
+  mut min_sum : Double
+  mut n : Int
+}
+pub fn PageHinkley::new(target_mean? : Double, control_limit? : Double, delta? : Double, alpha? : Double) -> Self
+pub fn PageHinkley::reset(Self) -> Unit
+pub fn PageHinkley::update(Self, Double) -> Bool
+
+// Type aliases
+
+// Traits
+
