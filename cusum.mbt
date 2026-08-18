@@ -51,3 +51,28 @@ pub fn Cusum::reset(self : Cusum) -> Unit {
   self.g_positive = 0.0
   self.g_negative = 0.0
 }
+
+///|
+/// Rich result form of `update`, retaining the direction and evidence.
+pub fn Cusum::update_result(
+  self : Cusum,
+  value : Double,
+  index? : Int = 0,
+) -> DetectionResult {
+  let delta = value - self.target_mean
+  let changed = self.update(value)
+  let evidence = if delta >= 0.0 { self.g_positive } else { self.g_negative }
+  let score = if self.control_limit <= 0.0 {
+    0.0
+  } else {
+    evidence / self.control_limit
+  }
+  DetectionResult::new(
+    changed,
+    score,
+    clamp_probability(score / (score + 1.0)),
+    direction_for_delta(delta),
+    index,
+    evidence~,
+  )
+}

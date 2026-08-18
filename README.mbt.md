@@ -1,33 +1,28 @@
 # moon-change-point
 
-MoonBit 在线变点检测库 (Online Change Point Detection Library) - 实现 CUSUM、Page-Hinkley、Bayesian 变点检测和多指标告警抑制，用于发现指标分布、均值或方差的突变。
+面向生产指标的 MoonBit 变点检测库：在线检测、离线分段、迟到数据重排、多变量监控、回放复现、SLO 与告警路由均可组合使用。
 
-后续可加入迟到数据处理、变点置信度、分层告警以及实时仪表盘适配。
+## 安装与最小用法
 
-## Features
-
-- **CUSUM (Cumulative Sum)**: Detects shifts in the mean of a sequence.
-- **Page-Hinkley**: Detects sudden changes in signal mean, robust to small noise.
-- **Bayesian Online Change Point Detection (BOCPD)**: Uses predictive probability and run-length posterior estimation (simplified Normal-Gamma conjugate prior).
-- **Detector Wrapper**: Multi-metric alert suppression to prevent alert fatigue.
-
-## Usage
+```text
+moon add Zy789kl/moon-change-point
+```
 
 ```moonbit nocheck
+///|
 import {
-  "hxiuzheng/moon-change-point" as cp
+  "Zy789kl/moon-change-point" @cp,
 }
 
+///|
 fn main {
-  // Use CUSUM
-  let detector = @cp.Detector::new(
-    CusumDetector(@cp.Cusum::new(target_mean=0.0, control_limit=5.0, drift=0.5)),
-    suppression_limit=3
-  )
-  
-  let _ = detector.update(2.0)
+  let detector = @cp.Cusum::new(target_mean=0.0, control_limit=5.0, drift=0.5)
+  println(detector.update_result(2.0, index=1).summary())
 }
 ```
 
-## License
-Apache-2.0
+## 验收验证
+
+固定种子基准可通过 `moon run cmd/main` 重现；项目包含 410 个边界、回归和集成测试，实现源码超过 8,000 行，并在稳定版 MoonBit 的多平台 CI 中执行格式、检查、构建、接口和测试验证。
+
+Apache-2.0。仓库：<https://github.com/Zy789kl/moon-change-point>。

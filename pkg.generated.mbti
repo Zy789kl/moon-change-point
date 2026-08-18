@@ -1,11 +1,549 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "hxiuzheng/moon-change-point"
+package "Zy789kl/moon-change-point"
 
 // Values
+pub fn absolute(Double) -> Double
+
+pub fn absolute_change(Double, Double) -> Double
+
+pub fn actionable_diagnostics(Array[WindowDiagnostic]) -> Int
+
+pub fn adaptive_threshold(Array[Double], false_positive_rate? : Double) -> Double
+
+pub fn alerts_markdown(Array[AlertEvent]) -> String
+
+pub fn align_by_timestamp(Array[SignalPoint], Array[SignalPoint]) -> (Array[Double], Array[Double])
+
+pub fn array_maximum(Array[Double]) -> Double
+
+pub fn array_minimum(Array[Double]) -> Double
+
+pub fn autocorrelation(Array[Double], Int) -> Double
+
+pub fn average_pairwise_correlation(Array[Array[Double]]) -> Double
+
+pub fn benchmark_cusum(SignalScenario, rounds? : Int) -> BenchmarkResult
+
+pub fn benchmark_ensemble(SignalScenario, rounds? : Int) -> BenchmarkResult
+
+pub fn benchmark_markdown(Array[BenchmarkResult]) -> String
+
+pub fn benchmark_robust_z(SignalScenario, rounds? : Int) -> BenchmarkResult
+
+pub fn benchmark_suite(rounds? : Int) -> Array[BenchmarkResult]
+
+pub fn best_boundary(Array[Double], minimum_segment? : Int) -> Int
+
+pub fn best_f1_threshold(Array[Double], Array[Bool], Array[Double]) -> ThresholdPoint
+
+pub fn best_lag(Array[Double], Array[Double], Int) -> Int
+
+pub fn best_threshold(Array[ScoreObservation], Array[Double], false_positive_cost? : Double, false_negative_cost? : Double) -> ThresholdReport
+
+pub fn binary_segmentation(Array[Double], threshold? : Double, min_segment? : Int, max_changes? : Int) -> Array[OfflineChange]
+
+pub fn bootstrap_change_score(Array[Double], Array[Double], replicates? : Int, seed? : Int64) -> BootstrapEstimate
+
+pub fn bootstrap_mean(Array[Double], replicates? : Int, seed? : Int64) -> BootstrapEstimate
+
+pub fn boundary_quality(Array[Double], Int, minimum_segment? : Int) -> Double
+
+pub fn bucket_timestamp(Int64, Int64, Int64) -> Int64
+
+pub fn burn_rate(SloWindow, Double) -> Double
+
+pub fn calibration_bins(Array[ScoreObservation], bins? : Int) -> Array[Double]
+
+pub fn catalog_markdown() -> String
+
+pub fn change_direction_from_values(Double, Double) -> ChangeDirection
+
+pub fn change_point_csv(ChangePoint) -> String
+
+pub fn change_point_csv_header() -> String
+
+pub fn changes_csv(Array[ChangePoint]) -> String
+
+pub fn clamp_probability(Double) -> Double
+
+pub fn clip(Array[Double], Double, Double) -> Array[Double]
+
+pub fn clip_values(Array[Double], Double, Double) -> Array[Double]
+
+pub fn cluster_incidents(Array[AlertEvent], Int64) -> Array[Incident]
+
+pub fn combine_scores(Array[Double], Array[Double]) -> Double
+
+pub fn compare_segment_quality(Array[Double], Array[Double]) -> Double
+
+pub fn consensus_score(Array[DetectionResult]) -> Double
+
+pub fn contiguous_ranges(Array[SignalPoint], Int64) -> Array[SegmentRange]
+
+pub fn cooldown_schedule(RecoveryPlan, Int) -> Array[Int]
+
+pub fn correlated_change_score(Array[Array[Double]], Array[Array[Double]]) -> Double
+
+pub fn correlation(Array[Double], Array[Double]) -> Double
+
+pub fn correlation_alert(Array[Array[Double]], Array[Array[Double]], threshold? : Double) -> DetectionResult
+
+pub fn correlation_matrix(Array[Array[Double]]) -> SquareMatrix
+
+pub fn cosine_similarity(Array[Double], Array[Double]) -> Double
+
+pub fn covariance(Array[Double], Array[Double]) -> Double
+
+pub fn covariance_matrix(Array[Array[Double]]) -> SquareMatrix
+
+pub fn critical_incident_count(Array[Incident]) -> Int
+
+pub fn cumulative_sum(Array[Double], initial? : Double) -> Array[Double]
+
+pub fn cumulative_total(Array[Double]) -> Array[Double]
+
+pub fn deduplicate_events(Array[AlertEvent], Int64) -> Array[AlertEvent]
+
+pub fn deseasonalize(Array[Double], Int) -> Array[Double]
+
+pub fn detection_csv(DetectionResult) -> String
+
+pub fn detection_csv_header() -> String
+
+pub fn detector_catalog() -> Array[DetectorSpec]
+
+pub fn detector_names() -> Array[String]
+
+pub fn detector_reliability(Array[DetectionResult]) -> Double
+
+pub fn diagnose_series(Array[Double], Int, minimum_segment? : Int) -> WindowDiagnostic
+
+pub fn diagnose_windows(Array[Double], Array[Double], shift_threshold? : Double, distribution_threshold? : Double) -> WindowDiagnostic
+
+pub fn diagnostic_direction(WindowDiagnostic) -> ChangeDirection
+
+pub fn diagnostic_label(WindowDiagnostic) -> String
+
+pub fn diagnostic_markdown(WindowDiagnostic) -> String
+
+pub fn diagnostic_score(WindowDiagnostic) -> Double
+
+pub fn diagnostics_batch(Array[Double], Array[Int]) -> Array[WindowDiagnostic]
+
+pub fn diagonal_mahalanobis(Array[Double], Array[Double], Array[Double]) -> Double
+
+pub fn difference(Array[Double], lag? : Int) -> Array[Double]
+
+pub fn direction_name(ChangeDirection) -> String
+
+pub fn distribution_change_score(Array[Double], Array[Double]) -> Double
+
+pub fn distribution_overlap(Array[Double], Array[Double], bins? : Int) -> Double
+
+pub fn downsample_mean(Array[Double], Int) -> Array[Double]
+
+pub fn energy_distance(Array[Double], Array[Double]) -> Double
+
+pub fn error_budget(Double, Double) -> Double
+
+pub fn euclidean_distance(Array[Double], Array[Double]) -> Double
+
+pub fn evaluate_change_points(Array[Int], Array[Int], tolerance? : Int) -> ChangePointMetrics
+
+pub fn evaluate_slo(SloWindow, target? : Double, burn_limit? : Double) -> SloReport
+
+pub fn evaluate_threshold(Array[ScoreObservation], Double, false_positive_cost? : Double, false_negative_cost? : Double) -> ThresholdReport
+
+pub fn event_rate(Array[AlertEvent], Int64, Int64) -> Double
+
+pub fn evidence_strength(Double, Double, Double) -> Double
+
+pub fn expected_alert_cost(Double, Double, false_positive_cost? : Double, false_negative_cost? : Double) -> Double
+
+pub fn explain_batch(Array[DetectionResult], Double, Array[Double], String) -> Array[DetectionExplanation]
+
+pub fn explanation_alerts(Array[DetectionExplanation]) -> Int
+
+pub fn explanation_csv(DetectionExplanation) -> String
+
+pub fn explanation_csv_header() -> String
+
+pub fn explanation_markdown(DetectionExplanation) -> String
+
+pub fn explanation_strength(DetectionExplanation) -> Double
+
+pub fn exponential_smooth(Array[Double], alpha? : Double) -> Array[Double]
+
+pub fn extract_features(Array[Double]) -> WindowFeatures
+
+pub fn feature_change_score(Array[Double], Array[Double]) -> Double
+
+pub fn feature_distance(WindowFeatures, WindowFeatures) -> Double
+
+pub fn feature_names() -> Array[String]
+
+pub fn find_detector(String) -> DetectorSpec?
+
+pub fn first_difference(Array[Double]) -> Array[Double]
+
+pub fn forecast_mae(Array[Double], Array[Double]) -> Double
+
+pub fn forecast_mape(Array[Double], Array[Double]) -> Double
+
+pub fn forecast_rmse(Array[Double], Array[Double]) -> Double
+
+pub fn forward_fill(Array[Double], fallback? : Double) -> Array[Double]
+
+pub fn generate_signal(SignalScenario) -> Array[Double]
+
+pub fn hampel_filter(Array[Double], window_size? : Int, threshold? : Double) -> Array[Double]
+
+pub fn highest_priority(Array[RoutingDecision]) -> Int
+
+pub fn histogram_distance(Histogram, Histogram) -> Double
+
+pub fn histogram_hellinger(Histogram, Histogram) -> Double
+
+pub fn incident_alert_count(Array[Incident]) -> Int
+
+pub fn incident_rate(Array[Incident], Int64, Int64) -> Double
+
+pub fn incidents_markdown(Array[Incident]) -> String
+
+pub fn inspect_split(Array[Double], Int, min_segment? : Int) -> OfflineChange?
+
+pub fn interpolate_missing(Array[Double]) -> Array[Double]
+
+pub fn interpolate_points(Array[SignalPoint], Int64) -> Array[SignalPoint]
+
+pub fn interquartile_range(Array[Double]) -> Double
+
+pub fn is_finite(Double) -> Bool
+
+pub fn ks_statistic(Array[Double], Array[Double]) -> Double
+
+pub fn lag_points(Array[SignalPoint], Int64) -> Array[SignalPoint]
+
+pub fn lag_values(Array[Double], Int) -> Array[Double]
+
+pub fn lagged_correlation(Array[Double], Array[Double], Int) -> Double
+
+pub fn linear_slope(Array[Double]) -> Double
+
+pub fn locate_time_window(Array[TimeWindow], Int64) -> Int
+
+pub fn make_explanation(DetectionResult, Double, Double, String) -> DetectionExplanation
+
+pub fn make_time_windows(Int64, Int64, Int64, step? : Int64) -> Array[TimeWindow]
+
+pub fn mann_whitney_u(Array[Double], Array[Double]) -> Double
+
+pub fn mask_every(Array[Double], Int, offset? : Int) -> Array[Double]
+
+pub fn mean(Array[Double]) -> Double
+
+pub fn mean_absolute_difference(Array[Double]) -> Double
+
+pub fn mean_shift_score(Array[Double], Int, min_segment? : Int) -> Double
+
+pub fn median(Array[Double]) -> Double
+
+pub fn median_absolute_deviation(Array[Double]) -> Double
+
+pub fn merge_nearby_changes(Array[OfflineChange], Int) -> Array[OfflineChange]
+
+pub fn metrics_markdown(ChangePointMetrics) -> String
+
+pub fn moving_average(Array[Double], Int) -> Array[Double]
+
+pub fn moving_median(Array[Double], Int) -> Array[Double]
+
+pub fn normalize_minmax(Array[Double]) -> Array[Double]
+
+pub fn normalize_range(Array[Double], minimum? : Double, maximum? : Double) -> Array[Double]
+
+pub fn normalize_scores(Array[Double]) -> Array[Double]
+
+pub fn normalize_zscore(Array[Double]) -> Array[Double]
+
+pub fn online_detector_count() -> Int
+
+pub fn optimal_changepoints(Array[Double], penalty? : Double, min_segment? : Int, max_changes? : Int) -> Array[Int]
+
+pub fn outlier_mask(Array[Double], threshold? : Double) -> Array[Bool]
+
+pub fn page_count(Array[RoutingDecision]) -> Int
+
+pub fn percentile(Array[Double], Double) -> Double
+
+pub fn piecewise_constant_error(Array[Double], Array[Int]) -> Double
+
+pub fn quality_gate(Array[Double], minimum_score? : Double) -> Bool
+
+pub fn quality_score(QualityReport) -> Double
+
+pub fn quantile(Array[Double], Double) -> Double
+
+pub fn quantile_shift_score(Array[Double], Array[Double]) -> Double
+
+pub fn rank_biserial_effect(Array[Double], Array[Double]) -> Double
+
+pub fn ranks(Array[Double]) -> Array[Double]
+
+pub fn recommended_detector(Bool, Bool, Bool) -> String
+
+pub fn recovery_message(RecoveryPlan) -> String
+
+pub fn recovery_priority(DetectionResult) -> Int
+
+pub fn recovery_report(Array[RecoveryPlan]) -> String
+
+pub fn relative_change(Double, Double) -> Double
+
+pub fn remove_invalid(Array[Double]) -> Array[Double]
+
+pub fn reorder_periodic(Array[SignalPoint], Int) -> Array[SignalPoint]
+
+pub fn replace_invalid(Array[Double], replacement? : Double) -> Array[Double]
+
+pub fn replay_changed_indices(Array[ReplayRecord]) -> Array[Int]
+
+pub fn replay_checksum(Array[ReplayRecord]) -> Double
+
+pub fn replay_latency_percentile(Array[ReplayRecord], Double) -> Int64
+
+pub fn replay_summary_markdown(ReplaySummary) -> String
+
+pub fn replay_values(Array[ReplayRecord]) -> Array[Double]
+
+pub fn replay_window(Array[ReplayRecord], Int, Int) -> Array[ReplayRecord]
+
+pub fn resample_linear(Array[SignalPoint], Int64) -> Array[SignalPoint]
+
+pub fn results_csv(Array[DetectionResult]) -> String
+
+pub fn robust_detector_count() -> Int
+
+pub fn robust_scale(Array[Double]) -> Double
+
+pub fn robust_z_score(Double, Double, Double) -> Double
+
+pub fn robust_z_scores(Array[Double]) -> Array[Double]
+
+pub fn rolling_correlation(Array[Double], Array[Double], Int) -> Array[Double]
+
+pub fn rolling_mean(Array[Double], Int) -> Array[Double]
+
+pub fn rolling_origins(Int, Int, Int, step? : Int) -> Array[SegmentRange]
+
+pub fn rolling_quantile(Array[Double], Int, Double) -> Array[Double]
+
+pub fn rolling_slope(Array[Double], Int) -> Array[Double]
+
+pub fn rolling_standard_deviation(Array[Double], Int) -> Array[Double]
+
+pub fn route_alert(AlertEvent) -> RoutingDecision
+
+pub fn route_alerts(Array[AlertEvent]) -> Array[RoutingDecision]
+
+pub fn routing_summary(Array[RoutingDecision]) -> String
+
+pub fn runs_test_score(Array[Double]) -> Double
+
+pub fn safe_correlation(Array[Double], Array[Double]) -> Double
+
+pub fn scale_profile(Array[Double], Array[Int]) -> Array[ScaleEvidence]
+
+pub fn scenario_truth(SignalScenario) -> Array[Int]
+
+pub fn score_f1(Array[Double], Array[Bool], Double) -> Double
+
+pub fn score_margin(Double, Double) -> Double
+
+pub fn score_precision(Array[Double], Array[Bool], Double) -> Double
+
+pub fn score_recall(Array[Double], Array[Bool], Double) -> Double
+
+pub fn score_to_confidence(Double, Double) -> Double
+
+pub fn seasonal_naive_forecast(Array[Double], Int, Int) -> Array[Double]
+
+pub fn seasonal_strength(Array[Double], Int) -> Double
+
+pub fn second_difference(Array[Double]) -> Array[Double]
+
+pub fn segment_means(Array[Double], Array[Int]) -> Array[Double]
+
+pub fn segment_profile(Array[Double], Array[Int]) -> Array[StatsSummary]
+
+pub fn segment_quality(Array[Double]) -> SegmentQuality
+
+pub fn segment_variances(Array[Double], Array[Int]) -> Array[Double]
+
+pub fn severity_from_score(Double) -> AlertSeverity
+
+pub fn severity_name(AlertSeverity) -> String
+
+pub fn should_escalate(RecoveryPlan, Double) -> Bool
+
+pub fn sigmoid_score(Double) -> Double
+
+pub fn sign(Double) -> Int
+
+pub fn sign_change_rate(Array[Double]) -> Double
+
+pub fn signal_checksum(Array[Double]) -> Double
+
+pub fn slope_confidence(Array[Double]) -> Double
+
+pub fn sorted_copy(Array[Double]) -> Array[Double]
+
+pub fn spearman_correlation(Array[Double], Array[Double]) -> Double
+
+pub fn split_train_test(Array[Double], train_fraction? : Double) -> (Array[Double], Array[Double])
+
+pub fn standard_deviation(Array[Double]) -> Double
+
+pub fn stratified_counts(Array[Double], Int) -> Array[Int]
+
+pub fn strongest_contribution(DetectionExplanation) -> EvidenceContribution?
+
+pub fn sum(Array[Double]) -> Double
+
+pub fn summarize_replay(Array[ReplayRecord]) -> ReplaySummary
+
+pub fn summary_markdown(StatsSummary) -> String
+
+pub fn tail_confidence(Double, scale? : Double) -> Double
+
+pub fn threshold_for_false_positive(Array[Double], Double) -> Double
+
+pub fn threshold_from_mad(Array[Double], multiplier? : Double) -> Double
+
+pub fn threshold_from_mean(Array[Double], standard_deviations? : Double) -> Double
+
+pub fn threshold_from_quantile(Array[Double], Double) -> Double
+
+pub fn threshold_grid(Double, Double, Int) -> Array[Double]
+
+pub fn threshold_points(Array[Double], Double) -> Array[ThresholdPoint]
+
+pub fn time_window_csv(Array[TimeWindow], Array[Int]) -> String
+
+pub fn timestamped_signal(Array[Double], start? : Int64, step? : Int64) -> Array[SignalPoint]
+
+pub fn trimmed_mean(Array[Double], Double) -> Double
+
+pub fn validate_points(Array[SignalPoint], maximum_gap? : Int64?) -> QualityReport
+
+pub fn validate_values(Array[Double], lower? : Double?, upper? : Double?) -> QualityReport
+
+pub fn variance(Array[Double]) -> Double
+
+pub fn vector_dot(Array[Double], Array[Double]) -> Double
+
+pub fn vector_norm(Array[Double]) -> Double
+
+pub fn weighted_consensus(Array[DetectionResult], Array[Double], Double) -> DetectionResult
+
+pub fn weighted_mean(Array[Double], Array[Double]) -> Double
+
+pub fn window_change_scores(Array[Double], min_segment? : Int) -> Array[Double]
+
+pub fn window_counts(Array[SignalPoint], Array[TimeWindow]) -> Array[Int]
+
+pub fn window_means(Array[SignalPoint], Array[TimeWindow]) -> Array[Double]
+
+pub fn window_summaries(Array[SignalPoint], Array[TimeWindow]) -> Array[StatsSummary]
+
+pub fn winsorize(Array[Double], lower_probability? : Double, upper_probability? : Double) -> Array[Double]
+
+pub fn winsorize_robust(Array[Double], Double, Double) -> Array[Double]
 
 // Errors
 
 // Types and methods
+pub struct AdaptiveBaseline {
+  moments : OnlineMoments
+  mut value : Double
+  learning_rate : Double
+  mut initialized : Bool
+}
+pub fn AdaptiveBaseline::new(learning_rate? : Double) -> Self
+pub fn AdaptiveBaseline::sample_count(Self) -> Int
+pub fn AdaptiveBaseline::summary(Self) -> StatsSummary
+pub fn AdaptiveBaseline::update(Self, Double) -> Double
+pub fn AdaptiveBaseline::value(Self) -> Double
+
+pub struct AdaptiveThreshold {
+  mut threshold : Double
+  rate : Double
+  minimum : Double
+  maximum : Double
+  mut count : Int
+}
+pub fn AdaptiveThreshold::count(Self) -> Int
+pub fn AdaptiveThreshold::new(initial? : Double, rate? : Double, minimum? : Double, maximum? : Double) -> Self
+pub fn AdaptiveThreshold::observe(Self, Double, Bool) -> Double
+pub fn AdaptiveThreshold::value(Self) -> Double
+
+pub(all) enum AggregationKind {
+  MeanAggregate
+  SumAggregate
+  MinimumAggregate
+  MaximumAggregate
+  StandardDeviationAggregate
+}
+
+pub struct AlertBudget {
+  capacity : Double
+  refill : Double
+  mut tokens : Double
+  mut suppressed : Int
+}
+pub fn AlertBudget::allow(Self) -> Bool
+pub fn AlertBudget::new(capacity? : Int, refill? : Double) -> Self
+pub fn AlertBudget::suppressed(Self) -> Int
+pub fn AlertBudget::tick(Self) -> Unit
+
+pub struct AlertEvent {
+  metric : String
+  point : ChangePoint
+  suppressed : Bool
+  ordinal : Int
+}
+pub fn AlertEvent::new(String, ChangePoint, suppressed? : Bool, ordinal? : Int) -> Self
+
+pub struct AlertPolicy {
+  minimum_score : Double
+  minimum_confidence : Double
+  minimum_gap : Int
+  recovery_points : Int
+  mut quiet_points : Int
+  mut healthy_points : Int
+}
+pub fn AlertPolicy::accept(Self, DetectionResult) -> Bool
+pub fn AlertPolicy::minimum_score(Self) -> Double
+pub fn AlertPolicy::new(minimum_score? : Double, minimum_confidence? : Double, minimum_gap? : Int, recovery_points? : Int) -> Self
+pub fn AlertPolicy::reset(Self) -> Unit
+
+pub(all) enum AlertSeverity {
+  Informational
+  Warning
+  Critical
+}
+
+pub struct Ar1Forecaster {
+  mut mean : Double
+  mut covariance : Double
+  mut variance : Double
+  mut previous : Double
+  mut count : Int
+  forgetting : Double
+}
+pub fn Ar1Forecaster::new(forgetting? : Double) -> Self
+pub fn Ar1Forecaster::update(Self, Double) -> ForecastPoint
+
 pub struct Bayesian {
   hazard_rate : Double
   mut run_length_probs : Array[Double]
@@ -21,6 +559,71 @@ pub struct Bayesian {
 }
 pub fn Bayesian::new(hazard_rate? : Double, mu0? : Double, kappa0? : Double, alpha0? : Double, beta0? : Double, max_run_length? : Int) -> Self
 pub fn Bayesian::update(Self, Double) -> Double
+pub fn Bayesian::update_result(Self, Double, index? : Int) -> DetectionResult
+
+pub struct BenchmarkResult {
+  name : String
+  samples : Int
+  passes : Int
+  detections : Int
+  first_detection : Int
+  checksum : Double
+  truth_count : Int
+  metrics : ChangePointMetrics
+}
+pub fn BenchmarkResult::empty(String) -> Self
+pub fn BenchmarkResult::summary(Self) -> String
+
+pub struct BootstrapEstimate {
+  mean : Double
+  lower : Double
+  upper : Double
+  standard_error : Double
+  replicates : Int
+}
+
+pub(all) enum ChangeDirection {
+  Increase
+  Decrease
+  VarianceIncrease
+  VarianceDecrease
+  DistributionShift
+  Unknown
+}
+
+pub struct ChangePoint {
+  timestamp : Int64
+  index : Int
+  score : Double
+  confidence : Double
+  severity : AlertSeverity
+  direction : ChangeDirection
+  detector : String
+  baseline : Double
+  observed : Double
+}
+pub fn ChangePoint::from_result(SignalPoint, DetectionResult, String, Double) -> Self
+pub fn ChangePoint::summary(Self) -> String
+
+pub struct ChangePointMetrics {
+  true_positives : Int
+  false_positives : Int
+  false_negatives : Int
+  precision : Double
+  recall : Double
+  f1 : Double
+  mean_detection_delay : Double
+}
+pub fn ChangePointMetrics::empty() -> Self
+
+pub struct ConsecutiveRule {
+  required : Int
+  mut hits : Int
+  mut misses : Int
+}
+pub fn ConsecutiveRule::hits(Self) -> Int
+pub fn ConsecutiveRule::new(required? : Int) -> Self
+pub fn ConsecutiveRule::push(Self, Bool) -> Bool
 
 pub struct Cusum {
   target_mean : Double
@@ -33,6 +636,38 @@ pub struct Cusum {
 pub fn Cusum::new(target_mean? : Double, control_limit? : Double, drift? : Double) -> Self
 pub fn Cusum::reset(Self) -> Unit
 pub fn Cusum::update(Self, Double) -> Bool
+pub fn Cusum::update_result(Self, Double, index? : Int) -> DetectionResult
+
+pub struct DataQualityGate {
+  minimum_ratio : Double
+  reject_non_monotonic : Bool
+  reject_dimension_mismatch : Bool
+}
+pub fn DataQualityGate::accept(Self, QualityReport) -> Bool
+pub fn DataQualityGate::new(minimum_ratio? : Double, reject_non_monotonic? : Bool, reject_dimension_mismatch? : Bool) -> Self
+
+pub struct DetectionExplanation {
+  result : DetectionResult
+  baseline : Double
+  observed : Double
+  deviation : Double
+  relative_change : Double
+  contributions : Array[EvidenceContribution]
+  recommendation : String
+}
+pub fn DetectionExplanation::empty(index? : Int) -> Self
+
+pub struct DetectionResult {
+  changed : Bool
+  score : Double
+  confidence : Double
+  direction : ChangeDirection
+  index : Int
+  evidence : Double
+}
+pub fn DetectionResult::new(Bool, Double, Double, ChangeDirection, Int, evidence? : Double) -> Self
+pub fn DetectionResult::quiet(index? : Int) -> Self
+pub fn DetectionResult::summary(Self) -> String
 
 pub struct Detector {
   detector : DetectorType
@@ -41,11 +676,341 @@ pub struct Detector {
 }
 pub fn Detector::new(DetectorType, suppression_limit? : Int) -> Self
 pub fn Detector::update(Self, Double) -> Bool
+pub fn Detector::update_result(Self, Double, index? : Int) -> DetectionResult
+
+pub struct DetectorSpec {
+  name : String
+  family : String
+  online : Bool
+  multivariate : Bool
+  robust : Bool
+  default_threshold : Double
+  description : String
+}
+pub fn DetectorSpec::new(String, String, Bool, Bool, Bool, Double, String) -> Self
+pub fn DetectorSpec::summary(Self) -> String
 
 pub(all) enum DetectorType {
   CusumDetector(Cusum)
   PageHinkleyDetector(PageHinkley)
   BayesianDetector(Bayesian)
+}
+
+pub struct DeterministicRng {
+  mut state : Int64
+}
+pub fn DeterministicRng::new(seed? : Int64) -> Self
+pub fn DeterministicRng::next(Self) -> Int64
+pub fn DeterministicRng::normalish(Self, amplitude? : Double) -> Double
+pub fn DeterministicRng::symmetric(Self) -> Double
+pub fn DeterministicRng::unit(Self) -> Double
+
+pub struct DistributionShiftDetector {
+  reference : DoubleWindow
+  current : DoubleWindow
+  threshold : Double
+  mut index : Int
+}
+pub fn DistributionShiftDetector::new(window_size? : Int, threshold? : Double) -> Self
+pub fn DistributionShiftDetector::update(Self, Double) -> DetectionResult
+
+pub struct DoubleWindow {
+  capacity : Int
+  values : Array[Double]
+  mut start : Int
+  mut length : Int
+}
+pub fn DoubleWindow::capacity(Self) -> Int
+pub fn DoubleWindow::clear(Self) -> Unit
+pub fn DoubleWindow::first(Self) -> Double?
+pub fn DoubleWindow::get(Self, Int) -> Double?
+pub fn DoubleWindow::is_empty(Self) -> Bool
+pub fn DoubleWindow::is_full(Self) -> Bool
+pub fn DoubleWindow::last(Self) -> Double?
+pub fn DoubleWindow::length(Self) -> Int
+pub fn DoubleWindow::mean(Self) -> Double
+pub fn DoubleWindow::median(Self) -> Double
+pub fn DoubleWindow::new(Int) -> Self
+pub fn DoubleWindow::push(Self, Double) -> Double?
+pub fn DoubleWindow::quantile(Self, Double) -> Double
+pub fn DoubleWindow::slope(Self) -> Double
+pub fn DoubleWindow::snapshot(Self) -> StatsSummary
+pub fn DoubleWindow::standard_deviation(Self) -> Double
+pub fn DoubleWindow::sum(Self) -> Double
+pub fn DoubleWindow::to_array(Self) -> Array[Double]
+pub fn DoubleWindow::variance(Self) -> Double
+
+pub struct DualSidedDetector {
+  positive : Cusum
+  negative : Cusum
+  mut index : Int
+}
+pub fn DualSidedDetector::new(target? : Double, limit? : Double, drift? : Double) -> Self
+pub fn DualSidedDetector::update(Self, Double) -> DetectionResult
+
+pub struct EnsembleResult {
+  result : DetectionResult
+  votes : Int
+  detector_count : Int
+  agreement : Double
+}
+
+pub struct EventHistory {
+  capacity : Int
+  events : Array[AlertEvent]
+  mut total : Int
+}
+pub fn EventHistory::critical_count(Self) -> Int
+pub fn EventHistory::events(Self) -> Array[AlertEvent]
+pub fn EventHistory::latest(Self) -> AlertEvent?
+pub fn EventHistory::length(Self) -> Int
+pub fn EventHistory::new(capacity? : Int) -> Self
+pub fn EventHistory::push(Self, AlertEvent) -> Unit
+pub fn EventHistory::total(Self) -> Int
+pub fn EventHistory::unsuppressed_count(Self) -> Int
+
+pub struct EvidenceContribution {
+  name : String
+  value : Double
+  weight : Double
+  contribution : Double
+}
+pub fn EvidenceContribution::new(String, Double, weight? : Double) -> Self
+
+pub struct EwmaDetector {
+  mut baseline : Double
+  mut variance : Double
+  alpha : Double
+  threshold : Double
+  warmup : Int
+  mut count : Int
+  mut index : Int
+  mut initialized : Bool
+}
+pub fn EwmaDetector::baseline(Self) -> Double
+pub fn EwmaDetector::new(alpha? : Double, threshold? : Double, warmup? : Int, initial_mean? : Double, initial_variance? : Double) -> Self
+pub fn EwmaDetector::reset(Self) -> Unit
+pub fn EwmaDetector::scale(Self) -> Double
+pub fn EwmaDetector::update(Self, Double) -> DetectionResult
+
+pub struct FeatureExtractor {
+  left : DoubleWindow
+  right : DoubleWindow
+  threshold : Double
+  mut index : Int
+}
+pub fn FeatureExtractor::new(window_size? : Int, threshold? : Double) -> Self
+pub fn FeatureExtractor::update(Self, Double) -> DetectionResult
+
+pub struct ForecastPoint {
+  prediction : Double
+  lower : Double
+  upper : Double
+  residual : Double
+}
+pub fn ForecastPoint::new(Double, Double, uncertainty? : Double) -> Self
+
+pub struct Histogram {
+  minimum : Double
+  maximum : Double
+  bins : Int
+  counts : Array[Int]
+  mut total : Int
+}
+pub fn Histogram::bins(Self) -> Int
+pub fn Histogram::counts(Self) -> Array[Int]
+pub fn Histogram::new(Double, Double, Int) -> Self
+pub fn Histogram::probabilities(Self) -> Array[Double]
+pub fn Histogram::push(Self, Double) -> Unit
+pub fn Histogram::reset(Self) -> Unit
+pub fn Histogram::total(Self) -> Int
+
+pub struct HoltForecaster {
+  mut level : Double
+  mut trend : Double
+  alpha : Double
+  beta : Double
+  mut count : Int
+}
+pub fn HoltForecaster::new(alpha? : Double, beta? : Double) -> Self
+pub fn HoltForecaster::update(Self, Double, horizon? : Int) -> ForecastPoint
+
+pub struct HysteresisRule {
+  enter_threshold : Double
+  exit_threshold : Double
+  mut active : Bool
+}
+pub fn HysteresisRule::active(Self) -> Bool
+pub fn HysteresisRule::new(enter_threshold? : Double, exit_threshold? : Double) -> Self
+pub fn HysteresisRule::push(Self, Double) -> Bool
+
+pub struct Incident {
+  metric : String
+  mut first_timestamp : Int64
+  mut last_timestamp : Int64
+  mut alerts : Int
+  mut critical : Int
+  mut maximum_score : Double
+  mut direction : ChangeDirection
+}
+pub fn Incident::add(Self, AlertEvent) -> Unit
+pub fn Incident::duration(Self) -> Int64
+pub fn Incident::empty(String) -> Self
+pub fn Incident::is_critical(Self) -> Bool
+pub fn Incident::summary(Self) -> String
+
+pub struct IqrSpikeDetector {
+  window : DoubleWindow
+  multiplier : Double
+  warmup : Int
+  mut index : Int
+}
+pub fn IqrSpikeDetector::new(window_size? : Int, multiplier? : Double) -> Self
+pub fn IqrSpikeDetector::update(Self, Double) -> DetectionResult
+
+pub(all) enum LateDataPolicy {
+  Drop
+  KeepForCorrection
+  ReplaceSameTimestamp
+}
+
+pub struct LinearForecaster {
+  window : DoubleWindow
+  horizon : Int
+  uncertainty_multiplier : Double
+}
+pub fn LinearForecaster::fit(Self, Double) -> ForecastPoint
+pub fn LinearForecaster::new(window_size? : Int, horizon? : Int, uncertainty_multiplier? : Double) -> Self
+
+pub struct MahalanobisDetector {
+  stats : OnlineVectorStats
+  threshold : Double
+  warmup : Int
+  mut index : Int
+}
+pub fn MahalanobisDetector::count(Self) -> Int
+pub fn MahalanobisDetector::dimension(Self) -> Int
+pub fn MahalanobisDetector::new(Int, threshold? : Double, warmup? : Int) -> Self
+pub fn MahalanobisDetector::update(Self, Array[Double]) -> DetectionResult
+
+pub struct MeanVarianceDetector {
+  baseline : DoubleWindow
+  current : DoubleWindow
+  mean_threshold : Double
+  variance_threshold : Double
+  mut index : Int
+}
+pub fn MeanVarianceDetector::new(window_size? : Int, mean_threshold? : Double, variance_threshold? : Double) -> Self
+pub fn MeanVarianceDetector::update(Self, Double) -> DetectionResult
+
+pub struct MetricPipeline {
+  name : String
+  detector : PipelineDetector
+  policy : AlertPolicy
+  mut index : Int
+  mut ordinal : Int
+  baseline : Double
+}
+pub fn MetricPipeline::index(Self) -> Int
+pub fn MetricPipeline::new(String, PipelineDetector, policy? : AlertPolicy, baseline? : Double) -> Self
+pub fn MetricPipeline::process(Self, Int64, Double) -> AlertEvent?
+pub fn MetricPipeline::reset(Self) -> Unit
+
+pub struct MultiMetricMonitor {
+  pipelines : Array[MetricPipeline]
+  mut processed : Int
+  mut emitted : Int
+  mut suppressed : Int
+}
+pub fn MultiMetricMonitor::emitted_count(Self) -> Int
+pub fn MultiMetricMonitor::metric_count(Self) -> Int
+pub fn MultiMetricMonitor::new(Array[MetricPipeline]) -> Self
+pub fn MultiMetricMonitor::process(Self, Int, Int64, Double) -> AlertEvent?
+pub fn MultiMetricMonitor::process_batch(Self, Int, Array[SignalPoint]) -> Array[AlertEvent]
+pub fn MultiMetricMonitor::processed_count(Self) -> Int
+pub fn MultiMetricMonitor::suppressed_count(Self) -> Int
+
+pub struct MultiScaleDetector {
+  short : RobustZDetector
+  medium : RobustZDetector
+  long : TrendShiftDetector
+  minimum_consensus : Double
+  mut index : Int
+}
+pub fn MultiScaleDetector::new(short? : Int, medium? : Int, long? : Int, minimum_consensus? : Double) -> Self
+pub fn MultiScaleDetector::update(Self, Double) -> DetectionResult
+
+pub struct MultivariateEnsemble {
+  detectors : Array[ProjectionDetector]
+  quorum : Int
+  mut index : Int
+}
+pub fn MultivariateEnsemble::detector_count(Self) -> Int
+pub fn MultivariateEnsemble::new(Array[ProjectionDetector], quorum? : Int) -> Self
+pub fn MultivariateEnsemble::update(Self, Array[Double]) -> DetectionResult
+
+pub struct OfflineChange {
+  index : Int
+  score : Double
+  left_mean : Double
+  right_mean : Double
+  left_variance : Double
+  right_variance : Double
+  direction : ChangeDirection
+}
+
+pub struct OnlineEnsemble {
+  detectors : Array[PipelineDetector]
+  quorum : Int
+  mut index : Int
+}
+pub fn OnlineEnsemble::count(Self) -> Int
+pub fn OnlineEnsemble::new(Array[PipelineDetector], quorum? : Int) -> Self
+pub fn OnlineEnsemble::update(Self, Double) -> EnsembleResult
+
+pub struct OnlineMoments {
+  mut count : Int
+  mut mean : Double
+  mut m2 : Double
+  mut minimum : Double
+  mut maximum : Double
+}
+pub fn OnlineMoments::count(Self) -> Int
+pub fn OnlineMoments::maximum(Self) -> Double
+pub fn OnlineMoments::mean(Self) -> Double
+pub fn OnlineMoments::merge(Self, Self) -> Unit
+pub fn OnlineMoments::minimum(Self) -> Double
+pub fn OnlineMoments::new() -> Self
+pub fn OnlineMoments::population_variance(Self) -> Double
+pub fn OnlineMoments::push(Self, Double) -> Unit
+pub fn OnlineMoments::standard_deviation(Self) -> Double
+pub fn OnlineMoments::summary(Self, median? : Double) -> StatsSummary
+pub fn OnlineMoments::variance(Self) -> Double
+pub fn OnlineMoments::with_prior(Double, Double, Int) -> Self
+
+pub struct OnlineVectorStats {
+  dimension : Int
+  mut count : Int
+  means : Array[Double]
+  m2 : Array[Double]
+  minima : Array[Double]
+  maxima : Array[Double]
+}
+pub fn OnlineVectorStats::count(Self) -> Int
+pub fn OnlineVectorStats::dimension(Self) -> Int
+pub fn OnlineVectorStats::maximums(Self) -> Array[Double]
+pub fn OnlineVectorStats::means(Self) -> Array[Double]
+pub fn OnlineVectorStats::minimums(Self) -> Array[Double]
+pub fn OnlineVectorStats::new(Int) -> Self
+pub fn OnlineVectorStats::push(Self, Array[Double]) -> Bool
+pub fn OnlineVectorStats::standard_deviations(Self) -> Array[Double]
+pub fn OnlineVectorStats::standardized(Self, Array[Double]) -> Array[Double]
+pub fn OnlineVectorStats::variances(Self) -> Array[Double]
+
+pub struct OrderedPoint {
+  point : SignalPoint
+  late : Bool
+  arrival_order : Int
 }
 
 pub struct PageHinkley {
@@ -60,8 +1025,512 @@ pub struct PageHinkley {
 pub fn PageHinkley::new(target_mean? : Double, control_limit? : Double, delta? : Double, alpha? : Double) -> Self
 pub fn PageHinkley::reset(Self) -> Unit
 pub fn PageHinkley::update(Self, Double) -> Bool
+pub fn PageHinkley::update_result(Self, Double, index? : Int) -> DetectionResult
+
+pub struct PersistenceDetector {
+  detector : EwmaDetector
+  rule : ConsecutiveRule
+  mut index : Int
+}
+pub fn PersistenceDetector::new(warmup? : Int, persistence? : Int) -> Self
+pub fn PersistenceDetector::update(Self, Double) -> DetectionResult
+
+pub(all) enum PipelineDetector {
+  LegacyDetector(Detector)
+  Ewma(EwmaDetector)
+  RobustZ(RobustZDetector)
+  VarianceShift(VarianceShiftDetector)
+  TrendShift(TrendShiftDetector)
+  IqrSpike(IqrSpikeDetector)
+}
+pub fn PipelineDetector::update(Self, Double, Int) -> DetectionResult
+
+pub struct ProjectionDetector {
+  weights : Array[Double]
+  mut baseline : Double
+  mut variance : Double
+  alpha : Double
+  threshold : Double
+  mut count : Int
+  mut index : Int
+}
+pub fn ProjectionDetector::dimension(Self) -> Int
+pub fn ProjectionDetector::new(Array[Double], alpha? : Double, threshold? : Double) -> Self
+pub fn ProjectionDetector::update(Self, Array[Double]) -> DetectionResult
+
+pub(all) enum QualityIssue {
+  MissingValue
+  NonFiniteValue
+  OutOfRange
+  NonMonotonicTimestamp
+  ExcessiveGap
+  DimensionMismatch
+}
+
+pub struct QualityReport {
+  mut count : Int
+  mut valid : Int
+  missing : Int
+  mut non_finite : Int
+  mut out_of_range : Int
+  mut non_monotonic : Int
+  mut excessive_gaps : Int
+  issues : Array[QualityIssue]
+}
+pub fn QualityReport::empty() -> Self
+pub fn QualityReport::is_healthy(Self) -> Bool
+pub fn QualityReport::valid_ratio(Self) -> Double
+
+pub struct RankShiftDetector {
+  left : DoubleWindow
+  right : DoubleWindow
+  threshold : Double
+  mut index : Int
+}
+pub fn RankShiftDetector::new(window_size? : Int, threshold? : Double) -> Self
+pub fn RankShiftDetector::update(Self, Double) -> DetectionResult
+
+pub struct RecoveryPlan {
+  severity : AlertSeverity
+  immediate_action : String
+  verification_window : Int
+  cooldown : Int
+  escalation_score : Double
+}
+pub fn RecoveryPlan::for_result(DetectionResult) -> Self
+
+pub struct RecoveryTracker {
+  plan : RecoveryPlan
+  mut attempts : Int
+  mut acknowledged : Bool
+  mut recovered : Bool
+}
+pub fn RecoveryTracker::acknowledge(Self) -> Unit
+pub fn RecoveryTracker::attempt(Self) -> Int
+pub fn RecoveryTracker::attempts(Self) -> Int
+pub fn RecoveryTracker::is_closed(Self) -> Bool
+pub fn RecoveryTracker::mark_recovered(Self) -> Unit
+pub fn RecoveryTracker::new(RecoveryPlan) -> Self
+
+pub struct ReorderBuffer {
+  capacity : Int
+  policy : LateDataPolicy
+  pending : Array[OrderedPoint]
+  mut watermark : Int64
+  mut arrival_order : Int
+  mut dropped : Int
+  mut late_count : Int
+}
+pub fn ReorderBuffer::dropped_count(Self) -> Int
+pub fn ReorderBuffer::flush(Self) -> Array[OrderedPoint]
+pub fn ReorderBuffer::late_count(Self) -> Int
+pub fn ReorderBuffer::new(capacity? : Int, policy? : LateDataPolicy) -> Self
+pub fn ReorderBuffer::peek(Self) -> Array[OrderedPoint]
+pub fn ReorderBuffer::pending_count(Self) -> Int
+pub fn ReorderBuffer::push(Self, SignalPoint) -> Array[OrderedPoint]
+pub fn ReorderBuffer::watermark(Self) -> Int64
+
+pub struct ReplayComparator {
+  score_tolerance : Double
+  confidence_tolerance : Double
+  mut compared : Int
+  mut mismatches : Int
+}
+pub fn ReplayComparator::compare(Self, DetectionResult, DetectionResult) -> Bool
+pub fn ReplayComparator::compared(Self) -> Int
+pub fn ReplayComparator::mismatches(Self) -> Int
+pub fn ReplayComparator::new(score_tolerance? : Double, confidence_tolerance? : Double) -> Self
+
+pub struct ReplayRecord {
+  point : SignalPoint
+  result : DetectionResult
+  elapsed : Int64
+}
+pub fn ReplayRecord::new(SignalPoint, DetectionResult, Int64) -> Self
+
+pub struct ReplaySummary {
+  total : Int
+  changed : Int
+  first_change : Int
+  last_change : Int
+  mean_score : Double
+  max_score : Double
+  elapsed : Int64
+}
+pub fn ReplaySummary::empty() -> Self
+
+pub struct ReservoirSample {
+  capacity : Int
+  values : Array[Double]
+  mut seen : Int
+  rng : DeterministicRng
+}
+pub fn ReservoirSample::new(Int, seed? : Int64) -> Self
+pub fn ReservoirSample::push(Self, Double) -> Unit
+pub fn ReservoirSample::seen(Self) -> Int
+pub fn ReservoirSample::values(Self) -> Array[Double]
+
+pub struct RobustZDetector {
+  window : DoubleWindow
+  threshold : Double
+  warmup : Int
+  mut index : Int
+}
+pub fn RobustZDetector::new(window_size? : Int, threshold? : Double) -> Self
+pub fn RobustZDetector::reset(Self) -> Unit
+pub fn RobustZDetector::update(Self, Double) -> DetectionResult
+
+pub struct RoutingBudget {
+  capacity : Int
+  mut used : Int
+}
+pub fn RoutingBudget::allow(Self, RoutingDecision) -> Bool
+pub fn RoutingBudget::new(capacity? : Int) -> Self
+pub fn RoutingBudget::remaining(Self) -> Int
+pub fn RoutingBudget::used(Self) -> Int
+
+pub struct RoutingDecision {
+  metric : String
+  channel : String
+  priority : Int
+  mut acknowledged : Bool
+  reason : String
+}
+pub fn RoutingDecision::acknowledge(Self) -> Unit
+pub fn RoutingDecision::is_page(Self) -> Bool
+pub fn RoutingDecision::new(String, String, Int, String) -> Self
+pub fn RoutingDecision::summary(Self) -> String
+
+pub struct ScaleEvidence {
+  short_score : Double
+  medium_score : Double
+  long_score : Double
+  consensus : Double
+  changed : Bool
+}
+pub fn ScaleEvidence::empty() -> Self
+
+pub struct ScoreCalibrator {
+  observations : Array[ScoreObservation]
+  max_observations : Int
+  mut positive_weight : Double
+  mut negative_weight : Double
+}
+pub fn ScoreCalibrator::best(Self, Array[Double]) -> ThresholdReport
+pub fn ScoreCalibrator::count(Self) -> Int
+pub fn ScoreCalibrator::negative_weight(Self) -> Double
+pub fn ScoreCalibrator::new(max_observations? : Int) -> Self
+pub fn ScoreCalibrator::positive_weight(Self) -> Double
+pub fn ScoreCalibrator::push(Self, Double, Bool, weight? : Double) -> Unit
+pub fn ScoreCalibrator::report(Self, Double) -> ThresholdReport
+
+pub struct ScoreObservation {
+  score : Double
+  changed : Bool
+  weight : Double
+}
+pub fn ScoreObservation::new(Double, Bool, weight? : Double) -> Self
+
+pub struct SeasonalAnomalyDetector {
+  profile : SeasonalProfile
+  threshold : Double
+  mut index : Int
+}
+pub fn SeasonalAnomalyDetector::new(Int, threshold? : Double, alpha? : Double) -> Self
+pub fn SeasonalAnomalyDetector::update(Self, Double) -> DetectionResult
+
+pub struct SeasonalProfile {
+  period : Int
+  levels : Array[Double]
+  counts : Array[Int]
+  alpha : Double
+  mut index : Int
+}
+pub fn SeasonalProfile::baseline(Self, Int) -> Double
+pub fn SeasonalProfile::count(Self, Int) -> Int
+pub fn SeasonalProfile::levels(Self) -> Array[Double]
+pub fn SeasonalProfile::new(Int, alpha? : Double) -> Self
+pub fn SeasonalProfile::period(Self) -> Int
+pub fn SeasonalProfile::update(Self, Double) -> Double
+
+pub struct SegmentQuality {
+  count : Int
+  mean : Double
+  deviation : Double
+  stability : Double
+  completeness : Double
+  score : Double
+}
+pub fn SegmentQuality::empty() -> Self
+
+pub struct SegmentRange {
+  start : Int
+  end : Int
+}
+pub fn SegmentRange::length(Self) -> Int
+pub fn SegmentRange::new(Int, Int) -> Self
+
+pub(all) enum SignalPattern {
+  Stable
+  MeanShift
+  VarianceShift
+  Trend
+  Spike
+  MeanAndVarianceShift
+}
+
+pub struct SignalPoint {
+  timestamp : Int64
+  value : Double
+  sequence : Int
+}
+pub fn SignalPoint::new(Int64, Double, sequence? : Int) -> Self
+
+pub struct SignalScenario {
+  name : String
+  length : Int
+  change_at : Int
+  baseline : Double
+  shift : Double
+  noise : Double
+  post_noise : Double
+  trend : Double
+  pattern : SignalPattern
+  seed : Int64
+}
+pub fn SignalScenario::mean_and_variance(length? : Int, change_at? : Int, baseline? : Double, shift? : Double, noise? : Double, post_noise? : Double, seed? : Int64) -> Self
+pub fn SignalScenario::mean_shift(length? : Int, change_at? : Int, baseline? : Double, shift? : Double, noise? : Double, seed? : Int64) -> Self
+pub fn SignalScenario::spike(length? : Int, spike_at? : Int, baseline? : Double, spike? : Double, noise? : Double, seed? : Int64) -> Self
+pub fn SignalScenario::stable(length? : Int, baseline? : Double, noise? : Double, seed? : Int64) -> Self
+pub fn SignalScenario::trend(length? : Int, change_at? : Int, baseline? : Double, trend? : Double, noise? : Double, seed? : Int64) -> Self
+pub fn SignalScenario::variance_shift(length? : Int, change_at? : Int, baseline? : Double, noise? : Double, post_noise? : Double, seed? : Int64) -> Self
+
+pub struct SloReport {
+  window : SloWindow
+  target : Double
+  budget : Double
+  burn : Double
+  breached : Bool
+  recommendation : String
+}
+pub fn SloReport::availability(Self) -> Double
+pub fn SloReport::breached(Self) -> Bool
+pub fn SloReport::budget(Self) -> Double
+pub fn SloReport::burn(Self) -> Double
+pub fn SloReport::summary(Self) -> String
+
+pub struct SloTracker {
+  window : SloWindow
+  target : Double
+  burn_limit : Double
+  mut periods : Int
+}
+pub fn SloTracker::close_period(Self) -> SloReport
+pub fn SloTracker::new(target? : Double, burn_limit? : Double) -> Self
+pub fn SloTracker::observe(Self, DetectionResult) -> Unit
+pub fn SloTracker::periods(Self) -> Int
+pub fn SloTracker::window(Self) -> SloWindow
+
+pub struct SloWindow {
+  mut total : Int
+  mut bad : Int
+  mut changed : Int
+  mut severe : Int
+}
+pub fn SloWindow::availability(Self) -> Double
+pub fn SloWindow::bad(Self) -> Int
+pub fn SloWindow::change_rate(Self) -> Double
+pub fn SloWindow::changed(Self) -> Int
+pub fn SloWindow::new() -> Self
+pub fn SloWindow::observe(Self, DetectionResult) -> Unit
+pub fn SloWindow::severe(Self) -> Int
+pub fn SloWindow::total(Self) -> Int
+
+pub struct SquareMatrix {
+  size : Int
+  data : Array[Double]
+}
+pub fn SquareMatrix::add(Self, Self) -> Self
+pub fn SquareMatrix::determinant(Self) -> Double
+pub fn SquareMatrix::diagonal(Self) -> Array[Double]
+pub fn SquareMatrix::get(Self, Int, Int) -> Double
+pub fn SquareMatrix::identity(Int) -> Self
+pub fn SquareMatrix::multiply(Self, Self) -> Self
+pub fn SquareMatrix::new(Int, fill? : Double) -> Self
+pub fn SquareMatrix::quadratic_form(Self, Array[Double]) -> Double
+pub fn SquareMatrix::regularize(Self, Double) -> Unit
+pub fn SquareMatrix::scale(Self, Double) -> Self
+pub fn SquareMatrix::set(Self, Int, Int, Double) -> Unit
+pub fn SquareMatrix::size(Self) -> Int
+pub fn SquareMatrix::transpose(Self) -> Self
+
+pub struct StatsSummary {
+  count : Int
+  mean : Double
+  variance : Double
+  standard_deviation : Double
+  minimum : Double
+  maximum : Double
+  median : Double
+  first : Double
+  last : Double
+}
+pub fn StatsSummary::empty() -> Self
+
+pub struct StepChangeDetector {
+  reference : DoubleWindow
+  current : DoubleWindow
+  threshold : Double
+  mut index : Int
+}
+pub fn StepChangeDetector::new(window_size? : Int, threshold? : Double) -> Self
+pub fn StepChangeDetector::update(Self, Double) -> DetectionResult
+
+pub struct StreamEngine {
+  reorder : ReorderBuffer
+  tracker : WatermarkTracker
+  aggregator : WindowAggregator
+  pipeline : MetricPipeline
+  mut processed : Int
+  mut aggregates : Int
+  mut alerts : Int
+}
+pub fn StreamEngine::aggregate_count(Self) -> Int
+pub fn StreamEngine::alert_count(Self) -> Int
+pub fn StreamEngine::flush(Self) -> Array[AlertEvent]
+pub fn StreamEngine::new(String, PipelineDetector, window_size? : Int, lateness? : Int) -> Self
+pub fn StreamEngine::process_point(Self, SignalPoint) -> Array[AlertEvent]
+pub fn StreamEngine::processed(Self) -> Int
+
+pub struct ThresholdPoint {
+  index : Int
+  threshold : Double
+  score : Double
+  accepted : Bool
+}
+pub fn ThresholdPoint::new(Int, Double, Double) -> Self
+
+pub struct ThresholdReport {
+  threshold : Double
+  true_positives : Int
+  false_positives : Int
+  true_negatives : Int
+  false_negatives : Int
+  precision : Double
+  recall : Double
+  f1 : Double
+  expected_cost : Double
+}
+pub fn ThresholdReport::empty(Double) -> Self
+
+pub struct TimeWindow {
+  start : Int64
+  end : Int64
+  ordinal : Int
+}
+pub fn TimeWindow::contains(Self, Int64) -> Bool
+pub fn TimeWindow::duration(Self) -> Int64
+pub fn TimeWindow::is_empty(Self) -> Bool
+pub fn TimeWindow::new(Int64, Int64, Int) -> Self
+
+pub struct TrendShiftDetector {
+  window : DoubleWindow
+  slope_threshold : Double
+  persistence : Int
+  mut consecutive : Int
+  mut index : Int
+}
+pub fn TrendShiftDetector::new(window_size? : Int, slope_threshold? : Double, persistence? : Int) -> Self
+pub fn TrendShiftDetector::reset(Self) -> Unit
+pub fn TrendShiftDetector::update(Self, Double) -> DetectionResult
+
+pub struct VarianceShiftDetector {
+  short_window : DoubleWindow
+  long_window : DoubleWindow
+  threshold : Double
+  warmup : Int
+  mut index : Int
+}
+pub fn VarianceShiftDetector::new(short_window? : Int, long_window? : Int, threshold? : Double) -> Self
+pub fn VarianceShiftDetector::reset(Self) -> Unit
+pub fn VarianceShiftDetector::update(Self, Double) -> DetectionResult
+
+pub struct VectorPoint {
+  timestamp : Int64
+  values : Array[Double]
+  sequence : Int
+}
+pub fn VectorPoint::dimension(Self) -> Int
+pub fn VectorPoint::is_valid(Self) -> Bool
+pub fn VectorPoint::new(Int64, Array[Double], sequence? : Int) -> Self
+
+pub struct VoteRule {
+  required : Int
+  window : Array[Bool]
+  size : Int
+}
+pub fn VoteRule::new(size? : Int, required? : Int) -> Self
+pub fn VoteRule::push(Self, Bool) -> Bool
+pub fn VoteRule::votes(Self) -> Int
+
+pub struct WatermarkTracker {
+  allowed_lateness : Int64
+  mut maximum_seen : Int64
+  mut accepted : Int
+  mut dropped : Int
+}
+pub fn WatermarkTracker::accepted(Self) -> Int
+pub fn WatermarkTracker::dropped(Self) -> Int
+pub fn WatermarkTracker::new(allowed_lateness? : Int64) -> Self
+pub fn WatermarkTracker::observe(Self, Int64) -> Bool
+pub fn WatermarkTracker::watermark(Self) -> Int64
+
+pub struct WindowAggregate {
+  start_timestamp : Int64
+  end_timestamp : Int64
+  count : Int
+  value : Double
+  summary : StatsSummary
+}
+
+pub struct WindowAggregator {
+  size : Int
+  kind : AggregationKind
+  window : DoubleWindow
+  mut start_timestamp : Int64
+  mut end_timestamp : Int64
+  mut count : Int
+}
+pub fn WindowAggregator::flush(Self) -> WindowAggregate?
+pub fn WindowAggregator::new(Int, kind? : AggregationKind) -> Self
+pub fn WindowAggregator::push(Self, SignalPoint) -> WindowAggregate?
+
+pub struct WindowDiagnostic {
+  before : StatsSummary
+  after : StatsSummary
+  mean_shift : Double
+  variance_ratio : Double
+  distribution_shift : Double
+  severity : AlertSeverity
+  actionable : Bool
+}
+pub fn WindowDiagnostic::empty() -> Self
+
+pub struct WindowFeatures {
+  count : Int
+  mean : Double
+  standard_deviation : Double
+  median : Double
+  mad : Double
+  minimum : Double
+  maximum : Double
+  range : Double
+  slope : Double
+  autocorrelation : Double
+  change_rate : Double
+}
+pub fn WindowFeatures::empty() -> Self
 
 // Type aliases
 
 // Traits
-

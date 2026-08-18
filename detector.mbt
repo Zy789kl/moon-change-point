@@ -45,3 +45,39 @@ pub fn Detector::update(self : Detector, value : Double) -> Bool {
   }
   return false
 }
+
+///|
+/// Rich result form of the detector wrapper. Suppression is applied to the change flag only.
+pub fn Detector::update_result(
+  self : Detector,
+  value : Double,
+  index? : Int = 0,
+) -> DetectionResult {
+  let result = match self.detector {
+    CusumDetector(c) => c.update_result(value, index~)
+    PageHinkleyDetector(p) => p.update_result(value, index~)
+    BayesianDetector(b) => b.update_result(value, index~)
+  }
+  let emitted = if result.changed {
+    if self.suppression_count < self.suppression_limit {
+      self.suppression_count += 1
+      false
+    } else {
+      self.suppression_count = 0
+      true
+    }
+  } else {
+    if self.suppression_count > 0 {
+      self.suppression_count -= 1
+    }
+    false
+  }
+  {
+    changed: emitted,
+    score: result.score,
+    confidence: result.confidence,
+    direction: result.direction,
+    index: result.index,
+    evidence: result.evidence,
+  }
+}

@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "hxiuzheng/moon-change-point/cmd/main"
+package "Zy789kl/moon-change-point/cmd/main"
 
 // Values
 
@@ -10,4 +10,3 @@ package "hxiuzheng/moon-change-point/cmd/main"
 // Type aliases
 
 // Traits
-

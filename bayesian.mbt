@@ -130,3 +130,21 @@ pub fn Bayesian::update(self : Bayesian, value : Double) -> Double {
 
   return new_probs[0]
 }
+
+///|
+/// Rich result form of the Bayesian update.
+pub fn Bayesian::update_result(
+  self : Bayesian,
+  value : Double,
+  index? : Int = 0,
+) -> DetectionResult {
+  let probability = self.update(value)
+  DetectionResult::new(
+    probability > 0.5,
+    probability,
+    probability,
+    DistributionShift,
+    index,
+    evidence=probability,
+  )
+}

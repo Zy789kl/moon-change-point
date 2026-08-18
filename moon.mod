@@ -9,13 +9,13 @@
 //   "moonbitlang/x@0.4.6",
 // }
 
-name = "hxiuzheng/moon-change-point"
+name = "Zy789kl/moon-change-point"
 
-version = "0.1.0"
+version = "0.2.0"
 
 readme = "README.mbt.md"
 
-repository = "https://github.com/hxiuzheng/moon-change-point"
+repository = "https://github.com/Zy789kl/moon-change-point"
 
 license = "Apache-2.0"
 
@@ -23,4 +23,4 @@ keywords = [ "change-point", "anomaly-detection", "time-series", "cusum" ]
 
 preferred_target = "wasm-gc"
 
-description = "MoonBit Online Change Point Detection Library (CUSUM, Page-Hinkley, Bayesian)"
+description = "Production-oriented MoonBit change-point detection, streaming windows, multivariate monitoring, replay, SLO and alert routing"

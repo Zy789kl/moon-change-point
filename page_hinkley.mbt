@@ -50,3 +50,28 @@ pub fn PageHinkley::reset(self : PageHinkley) -> Unit {
   self.min_sum = 0.0
   self.n = 0
 }
+
+///|
+/// Rich result form of `update`, retaining direction and cumulative evidence.
+pub fn PageHinkley::update_result(
+  self : PageHinkley,
+  value : Double,
+  index? : Int = 0,
+) -> DetectionResult {
+  let delta = value - self.target_mean
+  let changed = self.update(value)
+  let evidence = self.sum - self.min_sum
+  let score = if self.control_limit <= 0.0 {
+    0.0
+  } else {
+    evidence / self.control_limit
+  }
+  DetectionResult::new(
+    changed,
+    score,
+    clamp_probability(score / (score + 1.0)),
+    direction_for_delta(delta),
+    index,
+    evidence~,
+  )
+}

@@ -1,7 +1,5 @@
-// import {
-//   "qyt1234567/moon-change-point" @lib,
-// }
+import {
+  "Zy789kl/moon-change-point" @cp,
+}
 
-options(
-  "is-main": true,
-)
+pkgtype(kind: "executable")
