@@ -12,8 +12,8 @@ The library provides composable detection primitives for mean shifts, variance c
 - **Streaming pipelines:** bounded windows, time aggregation, watermark-based late-data handling, multi-metric monitoring, suppression, ensembles, and multi-scale evidence.
 - **Offline analysis:** binary segmentation, dynamic programming, split inspection, change-point metrics, tolerance-aware evaluation, and piecewise-constant error.
 - **Multivariate monitoring:** vector statistics, projection detection, Mahalanobis distance, covariance/correlation analysis, and correlated-change scoring.
-- **Operational utilities:** data-quality gates, threshold calibration, bootstrap estimates, deterministic signal generation, replay comparison, explanations, SLO tracking, incident clustering, and alert routing.
-- **Output formats:** stable CSV and Markdown reports for logs, notebooks, CI artifacts, and dashboards.
+- **Operational utilities:** data-quality contracts, threshold calibration, bootstrap estimates, deterministic signal generation, replay comparison, explanations, SLO tracking, incident clustering, alert routing, rollout guardrails, and canary plans.
+- **Integration outputs:** stable JSON Lines, CSV, Prometheus, Markdown, and summary JSON exports for logs, notebooks, CI artifacts, and dashboards.
 
 ## Quick start
 
@@ -63,6 +63,7 @@ The root package is organized by responsibility:
 - `offline_analysis.mbt`, `segment_quality.mbt`, `features.mbt`, and `rank_tests.mbt` provide historical analysis and feature-level evidence.
 - `multivariate.mbt`, `matrix.mbt`, and `correlation.mbt` cover vector and cross-series monitoring.
 - `quality.mbt`, `calibration.mbt`, `sampling.mbt`, `replay.mbt`, `explainability.mbt`, and `reporting.mbt` support validation, reproducibility, and integration.
+- `production_*.mbt` provides production-facing contracts, preprocessing, forecasting, monitoring, incident lifecycle, SLOs, rollout guardrails, canary control, and telemetry export.
 - `cmd/main` is a runnable benchmark entry point; it does not add a second library abstraction.
 
 ## Benchmark
@@ -88,7 +89,7 @@ moon build --target all
 moon test --deny-warn --target all
 ```
 
-The current test suite passes 410 tests. `moon info` regenerates the tracked public interface files so API changes are visible in review.
+The current test suite passes 425 tests. `moon info` regenerates the tracked public interface files so API changes are visible in review.
 
 ## CI
 

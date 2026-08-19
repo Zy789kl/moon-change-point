@@ -1,6 +1,6 @@
 # Reproducible benchmark
 
-This benchmark is part of the acceptance evidence for `moon-change-point`.
+This benchmark records a reproducible reference workload for `moon-change-point`.
 
 ## Fixed workload
 

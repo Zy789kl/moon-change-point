@@ -22,6 +22,8 @@ pub fn autocorrelation(Array[Double], Int) -> Double
 
 pub fn average_pairwise_correlation(Array[Array[Double]]) -> Double
 
+pub fn baseline_strategy_name(ProductionBaselineStrategy) -> String
+
 pub fn benchmark_cusum(SignalScenario, rounds? : Int) -> BenchmarkResult
 
 pub fn benchmark_ensemble(SignalScenario, rounds? : Int) -> BenchmarkResult
@@ -254,6 +256,8 @@ pub fn merge_nearby_changes(Array[OfflineChange], Int) -> Array[OfflineChange]
 
 pub fn metrics_markdown(ChangePointMetrics) -> String
 
+pub fn missing_value_strategy_name(MissingValueStrategy) -> String
+
 pub fn moving_average(Array[Double], Int) -> Array[Double]
 
 pub fn moving_median(Array[Double], Int) -> Array[Double]
@@ -278,6 +282,244 @@ pub fn percentile(Array[Double], Double) -> Double
 
 pub fn piecewise_constant_error(Array[Double], Array[Int]) -> Double
 
+pub fn production_autocorrelation_profile(Array[Double], maximum_lag? : Int) -> Array[Double]
+
+pub fn production_backpressure_policy_name(ProductionBackpressurePolicy) -> String
+
+pub fn production_bootstrap_difference(Array[Double], Array[Double], replicates? : Int, confidence? : Double, seed? : Int64) -> ProductionConfidenceInterval
+
+pub fn production_bootstrap_interval(Array[Double], replicates? : Int, confidence? : Double, seed? : Int64) -> ProductionConfidenceInterval
+
+pub fn production_brier_score(Array[Double], Array[Bool]) -> Double
+
+pub fn production_calibrate_result(ProductionOnlineCalibrator, DetectionResult) -> DetectionResult
+
+pub fn production_calibration_bins(Array[Double], Array[Bool], bins? : Int) -> Array[ProductionCalibrationBin]
+
+pub fn production_calibration_markdown(Array[ProductionCalibrationBin]) -> String
+
+pub fn production_calibration_mode_name(ProductionCalibrationMode) -> String
+
+pub fn production_center_scale(Array[Double]) -> Array[Double]
+
+pub fn production_checkpoint_csv(ProductionMonitorCheckpoint) -> String
+
+pub fn production_clip_percentiles(Array[Double], lower? : Double, upper? : Double) -> Array[Double]
+
+pub fn production_config_issues_summary(Array[ProductionConfigIssue]) -> String
+
+pub fn production_config_lines(ProductionMonitorConfig) -> Array[String]
+
+pub fn production_contract_checksum(ProductionContractRule) -> String
+
+pub fn production_contract_distinct_labels(Array[String]) -> Int
+
+pub fn production_contract_field_kind_name(ProductionContractFieldKind) -> String
+
+pub fn production_contract_largest_gap(Array[Int64]) -> Int64
+
+pub fn production_contract_report_json(ProductionContractReport) -> String
+
+pub fn production_contract_severity_name(ProductionContractSeverity) -> String
+
+pub fn production_contract_summary_markdown(ProductionContractSummary) -> String
+
+pub fn production_contract_violation_code_name(ProductionContractViolationCode) -> String
+
+pub fn production_control_limits(Array[Double], sigma_multiplier? : Double) -> (Double, Double)
+
+pub fn production_dashboard_csv(ProductionDashboardSeries) -> String
+
+pub fn production_dashboard_series(String, Array[ProductionMonitorEvent], maximum_rows? : Int) -> ProductionDashboardSeries
+
+pub fn production_decisions_markdown(Array[ProductionDeliveryDecision]) -> String
+
+pub fn production_delivery_channel_name(ProductionDeliveryChannel) -> String
+
+pub fn production_detector_kind_name(ProductionDetectorKind) -> String
+
+pub fn production_drift_markdown(ProductionDriftReport) -> String
+
+pub fn production_effect_size(Array[Double], Array[Double]) -> Double
+
+pub fn production_export_checksum(String) -> String
+
+pub fn production_export_field_name(ProductionExportField) -> String
+
+pub fn production_export_format_name(ProductionExportFormat) -> String
+
+pub fn production_export_group_by_metric(Array[ProductionExportRecord]) -> Array[String]
+
+pub fn production_export_manifest(ProductionExportOptions) -> String
+
+pub fn production_export_merge_batches(ProductionExportBatch, ProductionExportBatch) -> ProductionExportBatch
+
+pub fn production_export_metric_count(Array[ProductionExportRecord], String) -> Int
+
+pub fn production_export_metric_mean(Array[ProductionExportRecord], String) -> Double
+
+pub fn production_export_normalize_metric_name(String) -> String
+
+pub fn production_export_record_csv(ProductionExportRecord, delimiter? : String) -> String
+
+pub fn production_export_record_json(ProductionExportRecord, pretty? : Bool) -> String
+
+pub fn production_export_record_markdown(ProductionExportRecord) -> String
+
+pub fn production_export_record_prometheus(ProductionExportRecord, ProductionExportOptions) -> String
+
+pub fn production_export_validate_metric_name(String) -> Bool
+
+pub fn production_feature_contributions(ProductionFeatureVector, Array[Double]) -> Array[EvidenceContribution]
+
+pub fn production_feature_kind_name(ProductionFeatureKind) -> String
+
+pub fn production_features_csv(ProductionFeatureVector) -> String
+
+pub fn production_features_csv_header() -> String
+
+pub fn production_fleet_health_label(Double) -> String
+
+pub fn production_fleet_health_score(Array[ProductionMonitorSnapshot]) -> Double
+
+pub fn production_forecast_kind_name(ProductionForecastKind) -> String
+
+pub fn production_forecast_score(Array[Double], Array[ProductionForecastInterval]) -> ProductionForecastScore
+
+pub fn production_forecast_scores_markdown(Array[ProductionForecastScore]) -> String
+
+pub fn production_frame_change_score(ProductionMetricFrame, ProductionMetricFrame) -> Double
+
+pub fn production_guardrail_action_is_failure(ProductionGuardrailAction) -> Bool
+
+pub fn production_guardrail_action_is_terminal(ProductionGuardrailAction) -> Bool
+
+pub fn production_guardrail_action_name(ProductionGuardrailAction) -> String
+
+pub fn production_guardrail_decisions_json(Array[ProductionGuardrailDecision]) -> String
+
+pub fn production_guardrail_direction_name(ProductionGuardrailDirection) -> String
+
+pub fn production_guardrail_health_from_actions(Array[ProductionGuardrailAction]) -> Double
+
+pub fn production_guardrail_metric_name(ProductionGuardrailMetricKind) -> String
+
+pub fn production_health_state_name(ProductionHealthState) -> String
+
+pub fn production_impute_values(Array[Double], MissingValueStrategy) -> Array[Double]
+
+pub fn production_incident_rate_markdown(Array[ProductionIncident], Int64, Int64) -> String
+
+pub fn production_incident_state_name(ProductionIncidentState) -> String
+
+pub fn production_incidents_markdown(Array[ProductionIncident]) -> String
+
+pub fn production_join_series(Array[ProductionMetricSeries], Int64) -> Array[ProductionMetricFrame]
+
+pub fn production_log_loss(Array[Double], Array[Bool]) -> Double
+
+pub fn production_mean_difference(Array[Double], Array[Double]) -> Double
+
+pub fn production_mean_shift_test(Array[Double], Array[Double], alpha? : Double, replicates? : Int) -> ProductionStatTestResult
+
+pub fn production_median_difference(Array[Double], Array[Double]) -> Double
+
+pub fn production_median_shift_test(Array[Double], Array[Double], alpha? : Double, replicates? : Int) -> ProductionStatTestResult
+
+pub fn production_mode_name(ProductionMonitorMode) -> String
+
+pub fn production_monitor_event_name(ProductionMonitorEventKind) -> String
+
+pub fn production_monitor_events_csv(Array[ProductionMonitorEvent]) -> String
+
+pub fn production_monitor_events_csv_header() -> String
+
+pub fn production_monitor_signal(ProductionMonitor, Array[SignalPoint]) -> ProductionMonitorSnapshot
+
+pub fn production_normalize_range(Array[Double], lower? : Double, upper? : Double) -> Array[Double]
+
+pub fn production_observations_csv(Array[ProductionReplayObservation]) -> String
+
+pub fn production_observations_csv_header() -> String
+
+pub fn production_out_of_control_count(Array[Double], Double, Double) -> Int
+
+pub fn production_percent_changes(Array[Double]) -> Array[Double]
+
+pub fn production_permutation_shift_score(Array[Double], Array[Double], permutations? : Int, seed? : Int64) -> Double
+
+pub fn production_precision_recall_curve(Array[Double], Array[Bool], steps? : Int) -> Array[ProductionCurvePoint]
+
+pub fn production_quantile_profile(Array[Double], probabilities? : Array[Double]) -> Array[Double]
+
+pub fn production_query_results_markdown(Array[ProductionQueryResult]) -> String
+
+pub fn production_query_rollup(ProductionMetricSeries, Int64, Int64, Int64, function? : ProductionWindowFunction) -> Array[ProductionQueryResult]
+
+pub fn production_replay_mode_name(ProductionReplayMode) -> String
+
+pub fn production_report_format_name(ProductionReportFormat) -> String
+
+pub fn production_residuals_from_trend(Array[Double]) -> Array[Double]
+
+pub fn production_roc_curve(Array[Double], Array[Bool], steps? : Int) -> Array[ProductionCurvePoint]
+
+pub fn production_rolling_ranges(Array[Double], width? : Int) -> Array[Double]
+
+pub fn production_rolling_volatility(Array[Double], width? : Int) -> Array[Double]
+
+pub fn production_run_batch(String, ProductionMonitor, Array[ProductionSample]) -> ProductionBatchResult
+
+pub fn production_sample_quality(Array[ProductionSample]) -> (Int, Int, Int)
+
+pub fn production_scenario_points(SignalScenario, start_timestamp? : Int64, step? : Int64) -> Array[SignalPoint]
+
+pub fn production_select_cost_threshold(Array[Double], Array[Bool], cost? : ProductionThresholdCost, steps? : Int) -> ProductionThresholdSelection
+
+pub fn production_select_f1_threshold(Array[Double], Array[Bool], steps? : Int) -> ProductionThresholdSelection
+
+pub fn production_service_status_name(ProductionServiceStatus) -> String
+
+pub fn production_slo_reports_markdown(Array[ProductionSloReport]) -> String
+
+pub fn production_slo_window_name(ProductionSloWindowKind) -> String
+
+pub fn production_smoothed_values(Array[Double], width? : Int) -> Array[Double]
+
+pub fn production_snapshot_csv(ProductionMonitorSnapshot) -> String
+
+pub fn production_snapshots_csv(Array[ProductionMonitorSnapshot]) -> String
+
+pub fn production_snapshots_csv_header() -> String
+
+pub fn production_startup_report(ProductionMonitorConfig, Array[Double]) -> ProductionReadinessReport
+
+pub fn production_stat_test_kind_name(ProductionStatTestKind) -> String
+
+pub fn production_stream_metrics_markdown(ProductionStreamMetrics, Int64) -> String
+
+pub fn production_stream_process_points(ProductionStreamProcessor, Array[SignalPoint]) -> Array[ProductionMonitorEvent]
+
+pub fn production_stream_status_name(ProductionStreamStatus) -> String
+
+pub fn production_threshold_grid(Array[Double], steps? : Int) -> Array[Double]
+
+pub fn production_top_changes(Array[Double], maximum? : Int) -> Array[Int]
+
+pub fn production_transform_kind_name(ProductionTransformKind) -> String
+
+pub fn production_transform_values(Array[Double], Array[ProductionTransformSpec], missing? : MissingValueStrategy) -> Array[Double]
+
+pub fn production_validate_monotonic_timestamps(Array[Int64]) -> Bool
+
+pub fn production_values_checksum(Array[Double]) -> Double
+
+pub fn production_variance_ratio(Array[Double], Array[Double]) -> Double
+
+pub fn production_window_feature_distance(Array[Double], Array[Double], config? : ProductionFeatureConfig) -> Double
+
+pub fn production_window_function_name(ProductionWindowFunction) -> String
+
 pub fn quality_gate(Array[Double], minimum_score? : Double) -> Bool
 
 pub fn quality_score(QualityReport) -> Double
@@ -291,6 +533,8 @@ pub fn rank_biserial_effect(Array[Double], Array[Double]) -> Double
 pub fn ranks(Array[Double]) -> Array[Double]
 
 pub fn recommended_detector(Bool, Bool, Bool) -> String
+
+pub fn recovery_action_name(RecoveryAction) -> String
 
 pub fn recovery_message(RecoveryPlan) -> String
 
@@ -916,6 +1160,14 @@ pub fn MetricPipeline::new(String, PipelineDetector, policy? : AlertPolicy, base
 pub fn MetricPipeline::process(Self, Int64, Double) -> AlertEvent?
 pub fn MetricPipeline::reset(Self) -> Unit
 
+pub(all) enum MissingValueStrategy {
+  DropValue
+  ImputeLast
+  ImputeMean
+  ImputeZero
+  MarkUnknown
+}
+
 pub struct MultiMetricMonitor {
   pipelines : Array[MetricPipeline]
   mut processed : Int
@@ -1045,6 +1297,2189 @@ pub(all) enum PipelineDetector {
 }
 pub fn PipelineDetector::update(Self, Double, Int) -> DetectionResult
 
+pub struct ProductionAdaptiveBaselineDetector {
+  window : DoubleWindow
+  learning_rate : Double
+  threshold : Double
+  warmup : Int
+  mut baseline : Double
+  mut index : Int
+  mut initialized : Bool
+}
+pub fn ProductionAdaptiveBaselineDetector::baseline(Self) -> Double
+pub fn ProductionAdaptiveBaselineDetector::index(Self) -> Int
+pub fn ProductionAdaptiveBaselineDetector::new(window_size? : Int, learning_rate? : Double, threshold? : Double, warmup? : Int) -> Self
+pub fn ProductionAdaptiveBaselineDetector::reset(Self) -> Unit
+pub fn ProductionAdaptiveBaselineDetector::update(Self, Double) -> DetectionResult
+
+pub struct ProductionAlertConfig {
+  minimum_score : Double
+  minimum_confidence : Double
+  minimum_gap : Int64
+  recovery_points : Int
+  action : RecoveryAction
+  severity : AlertSeverity
+  budget_per_window : Int
+  budget_window : Int64
+}
+pub fn ProductionAlertConfig::action(Self) -> RecoveryAction
+pub fn ProductionAlertConfig::budget_per_window(Self) -> Int
+pub fn ProductionAlertConfig::budget_window(Self) -> Int64
+pub fn ProductionAlertConfig::minimum_confidence(Self) -> Double
+pub fn ProductionAlertConfig::minimum_gap(Self) -> Int64
+pub fn ProductionAlertConfig::minimum_score(Self) -> Double
+pub fn ProductionAlertConfig::new(minimum_score? : Double, minimum_confidence? : Double, minimum_gap? : Int64, recovery_points? : Int, action? : RecoveryAction, severity? : AlertSeverity, budget_per_window? : Int, budget_window? : Int64) -> Self
+pub fn ProductionAlertConfig::recovery_points(Self) -> Int
+pub fn ProductionAlertConfig::severity(Self) -> AlertSeverity
+
+pub struct ProductionAlertEnvelope {
+  fingerprint : String
+  event : AlertEvent
+  mut delivery_attempts : Int
+  mut delivered : Bool
+  mut deduplicated : Int
+}
+pub fn ProductionAlertEnvelope::attempt(Self) -> Unit
+pub fn ProductionAlertEnvelope::deduplicated(Self) -> Int
+pub fn ProductionAlertEnvelope::delivered(Self) -> Bool
+pub fn ProductionAlertEnvelope::delivery_attempts(Self) -> Int
+pub fn ProductionAlertEnvelope::event(Self) -> AlertEvent
+pub fn ProductionAlertEnvelope::fingerprint(Self) -> String
+pub fn ProductionAlertEnvelope::mark_delivered(Self) -> Unit
+pub fn ProductionAlertEnvelope::mark_duplicate(Self) -> Unit
+pub fn ProductionAlertEnvelope::new(String, AlertEvent) -> Self
+
+pub(all) enum ProductionBackpressurePolicy {
+  DropNewestSample
+  DropOldestSample
+  RejectProducer
+}
+
+pub(all) enum ProductionBaselineStrategy {
+  FixedBaseline
+  RollingMedian
+  RollingMean
+  ExponentiallyWeighted
+  SeasonalBaseline
+}
+
+pub struct ProductionBatchResult {
+  batch_id : String
+  input_count : Int
+  accepted_count : Int
+  rejected_count : Int
+  event_count : Int
+  alert_count : Int
+  checksum : Double
+  duration_ticks : Int64
+}
+pub fn ProductionBatchResult::accepted_count(Self) -> Int
+pub fn ProductionBatchResult::alert_count(Self) -> Int
+pub fn ProductionBatchResult::checksum(Self) -> Double
+pub fn ProductionBatchResult::duration_ticks(Self) -> Int64
+pub fn ProductionBatchResult::event_count(Self) -> Int
+pub fn ProductionBatchResult::input_count(Self) -> Int
+pub fn ProductionBatchResult::rejected_count(Self) -> Int
+pub fn ProductionBatchResult::summary(Self) -> String
+pub fn ProductionBatchResult::throughput(Self) -> Double
+
+pub struct ProductionBucket {
+  start_timestamp : Int64
+  end_timestamp : Int64
+  samples : Array[ProductionSample]
+}
+pub fn ProductionBucket::count(Self) -> Int
+pub fn ProductionBucket::end(Self) -> Int64
+pub fn ProductionBucket::mean(Self) -> Double
+pub fn ProductionBucket::new(Int64, Int64) -> Self
+pub fn ProductionBucket::push(Self, ProductionSample) -> Bool
+pub fn ProductionBucket::start(Self) -> Int64
+pub fn ProductionBucket::sum(Self) -> Double
+pub fn ProductionBucket::summary(Self) -> ProductionWindowSummary
+pub fn ProductionBucket::to_points(Self) -> Array[SignalPoint]
+
+pub struct ProductionBucketizer {
+  interval : Int64
+  origin : Int64
+  mut current : ProductionBucket?
+  mut flushed : Int
+  mut dropped : Int
+}
+pub fn ProductionBucketizer::dropped(Self) -> Int
+pub fn ProductionBucketizer::flush(Self) -> Array[ProductionBucket]
+pub fn ProductionBucketizer::flushed(Self) -> Int
+pub fn ProductionBucketizer::interval(Self) -> Int64
+pub fn ProductionBucketizer::new(interval? : Int64, origin? : Int64) -> Self
+pub fn ProductionBucketizer::push(Self, ProductionSample) -> Array[ProductionBucket]
+
+pub struct ProductionCalibrationBin {
+  lower : Double
+  upper : Double
+  count : Int
+  positives : Int
+  mean_score : Double
+  observed_rate : Double
+}
+pub fn ProductionCalibrationBin::count(Self) -> Int
+pub fn ProductionCalibrationBin::lower(Self) -> Double
+pub fn ProductionCalibrationBin::mean_score(Self) -> Double
+pub fn ProductionCalibrationBin::observed_rate(Self) -> Double
+pub fn ProductionCalibrationBin::positives(Self) -> Int
+pub fn ProductionCalibrationBin::upper(Self) -> Double
+
+pub(all) enum ProductionCalibrationMode {
+  IdentityCalibration
+  HistogramCalibration
+  PriorWeightedCalibration
+}
+
+pub struct ProductionCanaryTracker {
+  plan : ProductionRolloutPlan
+  guardrail : ProductionGuardrailController
+  mut observations : Int
+  mut healthy_observations : Int
+  mut blocked_observations : Int
+  mut last_decision : ProductionGuardrailDecision?
+}
+pub fn ProductionCanaryTracker::blocked_observations(Self) -> Int
+pub fn ProductionCanaryTracker::guardrail(Self) -> ProductionGuardrailController
+pub fn ProductionCanaryTracker::health(Self) -> Double
+pub fn ProductionCanaryTracker::healthy_observations(Self) -> Int
+pub fn ProductionCanaryTracker::last_decision(Self) -> ProductionGuardrailDecision?
+pub fn ProductionCanaryTracker::new(ProductionRolloutPlan, ProductionGuardrailController) -> Self
+pub fn ProductionCanaryTracker::observations(Self) -> Int
+pub fn ProductionCanaryTracker::observe(Self, ProductionGuardrailObservation) -> ProductionGuardrailDecision
+pub fn ProductionCanaryTracker::plan(Self) -> ProductionRolloutPlan
+pub fn ProductionCanaryTracker::reset(Self) -> Unit
+pub fn ProductionCanaryTracker::try_promote(Self, Int64) -> Bool
+
+pub struct ProductionCatalogSummary {
+  names : Array[String]
+  means : Array[Double]
+  variances : Array[Double]
+  counts : Array[Int]
+  quality : Array[Double]
+}
+pub fn ProductionCatalogSummary::counts(Self) -> Array[Int]
+pub fn ProductionCatalogSummary::markdown(Self) -> String
+pub fn ProductionCatalogSummary::means(Self) -> Array[Double]
+pub fn ProductionCatalogSummary::names(Self) -> Array[String]
+pub fn ProductionCatalogSummary::quality(Self) -> Array[Double]
+pub fn ProductionCatalogSummary::variances(Self) -> Array[Double]
+
+pub struct ProductionConfidenceInterval {
+  estimate : Double
+  lower : Double
+  upper : Double
+  confidence : Double
+  samples : Int
+  test_kind : ProductionStatTestKind
+}
+pub fn ProductionConfidenceInterval::confidence(Self) -> Double
+pub fn ProductionConfidenceInterval::contains(Self, Double) -> Bool
+pub fn ProductionConfidenceInterval::estimate(Self) -> Double
+pub fn ProductionConfidenceInterval::lower(Self) -> Double
+pub fn ProductionConfidenceInterval::samples(Self) -> Int
+pub fn ProductionConfidenceInterval::summary(Self) -> String
+pub fn ProductionConfidenceInterval::test_kind(Self) -> ProductionStatTestKind
+pub fn ProductionConfidenceInterval::upper(Self) -> Double
+pub fn ProductionConfidenceInterval::width(Self) -> Double
+
+pub struct ProductionConfigIssue {
+  field : String
+  message : String
+  fatal : Bool
+}
+pub fn ProductionConfigIssue::fatal(Self) -> Bool
+pub fn ProductionConfigIssue::field(Self) -> String
+pub fn ProductionConfigIssue::message(Self) -> String
+pub fn ProductionConfigIssue::new(String, String, fatal? : Bool) -> Self
+pub fn ProductionConfigIssue::summary(Self) -> String
+
+pub struct ProductionConfusionMatrix {
+  mut true_positive : Int
+  mut false_positive : Int
+  mut true_negative : Int
+  mut false_negative : Int
+}
+pub fn ProductionConfusionMatrix::balanced_accuracy(Self) -> Double
+pub fn ProductionConfusionMatrix::empty() -> Self
+pub fn ProductionConfusionMatrix::f1(Self) -> Double
+pub fn ProductionConfusionMatrix::false_negative(Self) -> Int
+pub fn ProductionConfusionMatrix::false_positive(Self) -> Int
+pub fn ProductionConfusionMatrix::false_positive_rate(Self) -> Double
+pub fn ProductionConfusionMatrix::from_scores(Array[Double], Array[Bool], Double) -> Self
+pub fn ProductionConfusionMatrix::precision(Self) -> Double
+pub fn ProductionConfusionMatrix::recall(Self) -> Double
+pub fn ProductionConfusionMatrix::specificity(Self) -> Double
+pub fn ProductionConfusionMatrix::summary(Self) -> String
+pub fn ProductionConfusionMatrix::support(Self) -> Int
+pub fn ProductionConfusionMatrix::true_negative(Self) -> Int
+pub fn ProductionConfusionMatrix::true_positive(Self) -> Int
+
+pub(all) enum ProductionContractFieldKind {
+  Numeric
+  Timestamp
+  Sequence
+  Label
+  Boolean
+}
+
+pub struct ProductionContractReport {
+  metric : String
+  mut checked : Int
+  mut accepted : Int
+  mut rejected : Int
+  missing : Int
+  mut warnings : Int
+  violations : Array[ProductionContractViolation]
+  distinct_labels : Array[String]
+  mut first_timestamp : Int64
+  mut last_timestamp : Int64
+  mut has_timestamp : Bool
+  mut monotonic : Bool
+}
+pub fn ProductionContractReport::acceptance_rate(Self) -> Double
+pub fn ProductionContractReport::accepted(Self) -> Int
+pub fn ProductionContractReport::checked(Self) -> Int
+pub fn ProductionContractReport::distinct_count(Self) -> Int
+pub fn ProductionContractReport::first_timestamp(Self) -> Int64
+pub fn ProductionContractReport::is_valid(Self) -> Bool
+pub fn ProductionContractReport::last_timestamp(Self) -> Int64
+pub fn ProductionContractReport::metric(Self) -> String
+pub fn ProductionContractReport::missing(Self) -> Int
+pub fn ProductionContractReport::monotonic(Self) -> Bool
+pub fn ProductionContractReport::new(String) -> Self
+pub fn ProductionContractReport::rejected(Self) -> Int
+pub fn ProductionContractReport::summary(Self) -> String
+pub fn ProductionContractReport::violations(Self) -> Array[ProductionContractViolation]
+pub fn ProductionContractReport::warnings(Self) -> Int
+
+pub struct ProductionContractRule {
+  name : String
+  field_kind : ProductionContractFieldKind
+  required : Bool
+  allow_missing : Bool
+  minimum : Double
+  maximum : Double
+  has_minimum : Bool
+  has_maximum : Bool
+  minimum_samples : Int
+  maximum_gap : Int64
+  monotonic_timestamps : Bool
+  maximum_label_length : Int
+  maximum_distinct_values : Int
+  severity : ProductionContractSeverity
+}
+pub fn ProductionContractRule::allow_missing(Self) -> Bool
+pub fn ProductionContractRule::field_kind(Self) -> ProductionContractFieldKind
+pub fn ProductionContractRule::has_maximum(Self) -> Bool
+pub fn ProductionContractRule::has_minimum(Self) -> Bool
+pub fn ProductionContractRule::maximum(Self) -> Double
+pub fn ProductionContractRule::maximum_distinct_values(Self) -> Int
+pub fn ProductionContractRule::maximum_gap(Self) -> Int64
+pub fn ProductionContractRule::maximum_label_length(Self) -> Int
+pub fn ProductionContractRule::minimum(Self) -> Double
+pub fn ProductionContractRule::minimum_samples(Self) -> Int
+pub fn ProductionContractRule::monotonic_timestamps(Self) -> Bool
+pub fn ProductionContractRule::name(Self) -> String
+pub fn ProductionContractRule::new(String, field_kind? : ProductionContractFieldKind, required? : Bool, allow_missing? : Bool, minimum? : Double, maximum? : Double, has_minimum? : Bool, has_maximum? : Bool, minimum_samples? : Int, maximum_gap? : Int64, monotonic_timestamps? : Bool, maximum_label_length? : Int, maximum_distinct_values? : Int, severity? : ProductionContractSeverity) -> Self
+pub fn ProductionContractRule::required(Self) -> Bool
+pub fn ProductionContractRule::severity(Self) -> ProductionContractSeverity
+
+pub(all) enum ProductionContractSeverity {
+  ContractError
+  ContractWarning
+}
+
+pub struct ProductionContractSummary {
+  contract_count : Int
+  report_count : Int
+  valid_count : Int
+  rejected_count : Int
+  warning_count : Int
+  total_samples : Int
+  total_violations : Int
+}
+pub fn ProductionContractSummary::contract_count(Self) -> Int
+pub fn ProductionContractSummary::health_score(Self) -> Double
+pub fn ProductionContractSummary::rejected_count(Self) -> Int
+pub fn ProductionContractSummary::report_count(Self) -> Int
+pub fn ProductionContractSummary::total_samples(Self) -> Int
+pub fn ProductionContractSummary::total_violations(Self) -> Int
+pub fn ProductionContractSummary::valid_count(Self) -> Int
+pub fn ProductionContractSummary::warning_count(Self) -> Int
+
+pub struct ProductionContractValidator {
+  mut rules : Array[ProductionContractRule]
+  mut reports : Array[ProductionContractReport]
+  mut total_batches : Int
+  mut total_samples : Int
+  mut total_violations : Int
+}
+pub fn ProductionContractValidator::clear_reports(Self) -> Unit
+pub fn ProductionContractValidator::filter_numeric_batch(Self, String, Array[Int64], Array[Double]) -> (Array[Int64], Array[Double], ProductionContractReport)
+pub fn ProductionContractValidator::latest_report(Self) -> ProductionContractReport?
+pub fn ProductionContractValidator::new() -> Self
+pub fn ProductionContractValidator::register(Self, ProductionContractRule) -> Bool
+pub fn ProductionContractValidator::remove(Self, String) -> Bool
+pub fn ProductionContractValidator::reports(Self) -> Array[ProductionContractReport]
+pub fn ProductionContractValidator::rule_count(Self) -> Int
+pub fn ProductionContractValidator::rules(Self) -> Array[ProductionContractRule]
+pub fn ProductionContractValidator::summary(Self) -> ProductionContractSummary
+pub fn ProductionContractValidator::total_batches(Self) -> Int
+pub fn ProductionContractValidator::total_samples(Self) -> Int
+pub fn ProductionContractValidator::total_violations(Self) -> Int
+pub fn ProductionContractValidator::validate_label_batch(Self, String, Array[Int64], Array[String]) -> ProductionContractReport
+pub fn ProductionContractValidator::validate_numeric_batch(Self, String, Array[Int64], Array[Double]) -> ProductionContractReport
+
+pub struct ProductionContractViolation {
+  code : ProductionContractViolationCode
+  severity : ProductionContractSeverity
+  metric : String
+  rule : String
+  index : Int
+  value : Double
+  has_value : Bool
+  message : String
+}
+pub fn ProductionContractViolation::code(Self) -> ProductionContractViolationCode
+pub fn ProductionContractViolation::has_value(Self) -> Bool
+pub fn ProductionContractViolation::index(Self) -> Int
+pub fn ProductionContractViolation::message(Self) -> String
+pub fn ProductionContractViolation::metric(Self) -> String
+pub fn ProductionContractViolation::new(ProductionContractViolationCode, ProductionContractSeverity, String, String, index? : Int, value? : Double, has_value? : Bool, message? : String) -> Self
+pub fn ProductionContractViolation::rule(Self) -> String
+pub fn ProductionContractViolation::severity(Self) -> ProductionContractSeverity
+pub fn ProductionContractViolation::summary(Self) -> String
+pub fn ProductionContractViolation::value(Self) -> Double
+
+pub(all) enum ProductionContractViolationCode {
+  MissingMetric
+  MissingValue
+  NonFiniteValue
+  ValueBelowMinimum
+  ValueAboveMaximum
+  TimestampOutOfOrder
+  TimestampTooOld
+  DuplicateSequence
+  EmptyLabel
+  LabelTooLong
+  InvalidBoolean
+  InsufficientSamples
+  ExcessiveGap
+  CardinalityExceeded
+  SchemaMismatch
+}
+
+pub struct ProductionCurvePoint {
+  threshold : Double
+  precision : Double
+  recall : Double
+  f1 : Double
+  false_positive_rate : Double
+  support : Int
+}
+pub fn ProductionCurvePoint::f1(Self) -> Double
+pub fn ProductionCurvePoint::false_positive_rate(Self) -> Double
+pub fn ProductionCurvePoint::from_matrix(Double, ProductionConfusionMatrix) -> Self
+pub fn ProductionCurvePoint::precision(Self) -> Double
+pub fn ProductionCurvePoint::recall(Self) -> Double
+pub fn ProductionCurvePoint::support(Self) -> Int
+pub fn ProductionCurvePoint::threshold(Self) -> Double
+
+pub struct ProductionDashboardPoint {
+  timestamp : Int64
+  value : Double
+  baseline : Double
+  score : Double
+  changed : Bool
+  state : ProductionHealthState
+}
+pub fn ProductionDashboardPoint::baseline(Self) -> Double
+pub fn ProductionDashboardPoint::changed(Self) -> Bool
+pub fn ProductionDashboardPoint::new(Int64, Double, Double, DetectionResult, ProductionHealthState) -> Self
+pub fn ProductionDashboardPoint::score(Self) -> Double
+pub fn ProductionDashboardPoint::state(Self) -> ProductionHealthState
+pub fn ProductionDashboardPoint::timestamp(Self) -> Int64
+pub fn ProductionDashboardPoint::value(Self) -> Double
+
+pub struct ProductionDashboardSeries {
+  name : String
+  points : Array[ProductionDashboardPoint]
+  mut dropped : Int
+}
+pub fn ProductionDashboardSeries::changed_count(Self) -> Int
+pub fn ProductionDashboardSeries::dropped(Self) -> Int
+pub fn ProductionDashboardSeries::latest(Self) -> ProductionDashboardPoint?
+pub fn ProductionDashboardSeries::length(Self) -> Int
+pub fn ProductionDashboardSeries::name(Self) -> String
+pub fn ProductionDashboardSeries::new(String, capacity? : Int) -> Self
+pub fn ProductionDashboardSeries::points(Self) -> Array[ProductionDashboardPoint]
+pub fn ProductionDashboardSeries::push(Self, ProductionDashboardPoint, capacity? : Int) -> Unit
+
+pub(all) enum ProductionDeliveryChannel {
+  ConsoleChannel
+  LogChannel
+  TicketChannel
+  PagerChannel
+  WebhookChannel
+  DashboardChannel
+}
+
+pub struct ProductionDeliveryDecision {
+  rule : String
+  channel : ProductionDeliveryChannel
+  allowed : Bool
+  reason : String
+  fingerprint : String
+}
+pub fn ProductionDeliveryDecision::allowed(Self) -> Bool
+pub fn ProductionDeliveryDecision::channel(Self) -> ProductionDeliveryChannel
+pub fn ProductionDeliveryDecision::fingerprint(Self) -> String
+pub fn ProductionDeliveryDecision::reason(Self) -> String
+pub fn ProductionDeliveryDecision::rule(Self) -> String
+pub fn ProductionDeliveryDecision::summary(Self) -> String
+
+pub struct ProductionDeliveryRule {
+  name : String
+  channel : ProductionDeliveryChannel
+  minimum_severity : AlertSeverity
+  include_suppressed : Bool
+  minimum_score : Double
+  cooldown : Int64
+}
+pub fn ProductionDeliveryRule::channel(Self) -> ProductionDeliveryChannel
+pub fn ProductionDeliveryRule::cooldown(Self) -> Int64
+pub fn ProductionDeliveryRule::include_suppressed(Self) -> Bool
+pub fn ProductionDeliveryRule::matches(Self, AlertEvent) -> Bool
+pub fn ProductionDeliveryRule::minimum_score(Self) -> Double
+pub fn ProductionDeliveryRule::minimum_severity(Self) -> AlertSeverity
+pub fn ProductionDeliveryRule::name(Self) -> String
+pub fn ProductionDeliveryRule::new(String, ProductionDeliveryChannel, minimum_severity? : AlertSeverity, include_suppressed? : Bool, minimum_score? : Double, cooldown? : Int64) -> Self
+
+pub struct ProductionDetectionConfig {
+  detector_name : String
+  threshold : Double
+  confidence : Double
+  warmup_points : Int
+  minimum_segment : Int
+  maximum_score : Double
+  direction_filter : ChangeDirection?
+}
+pub fn ProductionDetectionConfig::accepts(Self, DetectionResult) -> Bool
+pub fn ProductionDetectionConfig::confidence(Self) -> Double
+pub fn ProductionDetectionConfig::detector_name(Self) -> String
+pub fn ProductionDetectionConfig::direction_filter(Self) -> ChangeDirection?
+pub fn ProductionDetectionConfig::maximum_score(Self) -> Double
+pub fn ProductionDetectionConfig::minimum_segment(Self) -> Int
+pub fn ProductionDetectionConfig::new(detector_name? : String, threshold? : Double, confidence? : Double, warmup_points? : Int, minimum_segment? : Int, maximum_score? : Double, direction_filter? : ChangeDirection?) -> Self
+pub fn ProductionDetectionConfig::threshold(Self) -> Double
+pub fn ProductionDetectionConfig::warmup_points(Self) -> Int
+
+pub(all) enum ProductionDetectorKind {
+  CusumStackDetector
+  RobustZStackDetector
+  EwmaStackDetector
+  VarianceStackDetector
+  TrendStackDetector
+  SeasonalStackDetector
+  DistributionStackDetector
+}
+
+pub struct ProductionDetectorStack {
+  kinds : Array[ProductionDetectorKind]
+  detectors : Array[PipelineDetector]
+  weights : Array[Double]
+  minimum_votes : Int
+  mut index : Int
+}
+pub fn ProductionDetectorStack::index(Self) -> Int
+pub fn ProductionDetectorStack::length(Self) -> Int
+pub fn ProductionDetectorStack::new(Array[ProductionDetectorKind], Array[PipelineDetector], weights? : Array[Double], minimum_votes? : Int) -> Self
+pub fn ProductionDetectorStack::reset(Self) -> Unit
+pub fn ProductionDetectorStack::update(Self, Double) -> ProductionStackResult
+
+pub struct ProductionDetectorVote {
+  kind : ProductionDetectorKind
+  result : DetectionResult
+  weight : Double
+  accepted : Bool
+}
+pub fn ProductionDetectorVote::accepted(Self) -> Bool
+pub fn ProductionDetectorVote::kind(Self) -> ProductionDetectorKind
+pub fn ProductionDetectorVote::result(Self) -> DetectionResult
+pub fn ProductionDetectorVote::weight(Self) -> Double
+
+pub struct ProductionDriftReport {
+  baseline_count : Int
+  current_count : Int
+  mean_shift : Double
+  variance_ratio : Double
+  ks_distance : Double
+  energy_distance : Double
+  drift_score : Double
+  drifted : Bool
+}
+pub fn ProductionDriftReport::baseline_count(Self) -> Int
+pub fn ProductionDriftReport::current_count(Self) -> Int
+pub fn ProductionDriftReport::drift_score(Self) -> Double
+pub fn ProductionDriftReport::drifted(Self) -> Bool
+pub fn ProductionDriftReport::energy_distance(Self) -> Double
+pub fn ProductionDriftReport::from_values(Array[Double], Array[Double], threshold? : Double) -> Self
+pub fn ProductionDriftReport::ks_distance(Self) -> Double
+pub fn ProductionDriftReport::mean_shift(Self) -> Double
+pub fn ProductionDriftReport::summary(Self) -> String
+pub fn ProductionDriftReport::variance_ratio(Self) -> Double
+
+pub struct ProductionEscalationPolicy {
+  steps : Array[ProductionEscalationStep]
+  mut delivered : Int
+}
+pub fn ProductionEscalationPolicy::add(Self, ProductionEscalationStep) -> Unit
+pub fn ProductionEscalationPolicy::delivered(Self) -> Int
+pub fn ProductionEscalationPolicy::due(Self, ProductionIncident, Int64) -> Array[ProductionEscalationStep]
+pub fn ProductionEscalationPolicy::mark_delivered(Self) -> Unit
+pub fn ProductionEscalationPolicy::new(steps? : Array[ProductionEscalationStep]) -> Self
+pub fn ProductionEscalationPolicy::steps(Self) -> Array[ProductionEscalationStep]
+pub fn ProductionEscalationPolicy::summary(Self) -> String
+
+pub struct ProductionEscalationStep {
+  channel : String
+  delay : Int64
+  minimum_severity : AlertSeverity
+}
+pub fn ProductionEscalationStep::channel(Self) -> String
+pub fn ProductionEscalationStep::delay(Self) -> Int64
+pub fn ProductionEscalationStep::eligible(Self, ProductionIncident, Int64) -> Bool
+pub fn ProductionEscalationStep::minimum_severity(Self) -> AlertSeverity
+pub fn ProductionEscalationStep::new(String, Int64, minimum_severity? : AlertSeverity) -> Self
+
+pub struct ProductionEventBudget {
+  capacity : Int
+  interval : Int64
+  mut window_start : Int64?
+  mut used : Int
+  mut denied : Int
+}
+pub fn ProductionEventBudget::allow(Self, Int64) -> Bool
+pub fn ProductionEventBudget::denied(Self) -> Int
+pub fn ProductionEventBudget::new(capacity? : Int, interval? : Int64) -> Self
+pub fn ProductionEventBudget::remaining(Self) -> Int
+pub fn ProductionEventBudget::used(Self) -> Int
+
+pub struct ProductionExportBatch {
+  mut records : Array[ProductionExportRecord]
+  capacity : Int
+  mut accepted : Int
+  mut rejected : Int
+  mut duplicate : Int
+}
+pub fn ProductionExportBatch::accepted(Self) -> Int
+pub fn ProductionExportBatch::add(Self, ProductionExportRecord) -> Bool
+pub fn ProductionExportBatch::add_many(Self, Array[ProductionExportRecord]) -> Int
+pub fn ProductionExportBatch::capacity(Self) -> Int
+pub fn ProductionExportBatch::clear(Self) -> Unit
+pub fn ProductionExportBatch::count(Self) -> Int
+pub fn ProductionExportBatch::duplicate(Self) -> Int
+pub fn ProductionExportBatch::new(capacity? : Int) -> Self
+pub fn ProductionExportBatch::ordered(Self) -> Array[ProductionExportRecord]
+pub fn ProductionExportBatch::records(Self) -> Array[ProductionExportRecord]
+pub fn ProductionExportBatch::rejected(Self) -> Int
+
+pub(all) enum ProductionExportField {
+  ExportTimestamp
+  ExportMetric
+  ExportValue
+  ExportBaseline
+  ExportScore
+  ExportHealth
+  ExportState
+  ExportSource
+}
+
+pub(all) enum ProductionExportFormat {
+  ExportJsonLines
+  ExportCsv
+  ExportPrometheus
+  ExportMarkdown
+  ExportSummaryJson
+}
+
+pub struct ProductionExportOptions {
+  format : ProductionExportFormat
+  delimiter : String
+  include_header : Bool
+  include_metadata : Bool
+  pretty : Bool
+  max_records : Int
+  metric_prefix : String
+  metric_namespace : String
+  line_ending : String
+}
+pub fn ProductionExportOptions::delimiter(Self) -> String
+pub fn ProductionExportOptions::format(Self) -> ProductionExportFormat
+pub fn ProductionExportOptions::include_header(Self) -> Bool
+pub fn ProductionExportOptions::include_metadata(Self) -> Bool
+pub fn ProductionExportOptions::line_ending(Self) -> String
+pub fn ProductionExportOptions::max_records(Self) -> Int
+pub fn ProductionExportOptions::metric_namespace(Self) -> String
+pub fn ProductionExportOptions::metric_prefix(Self) -> String
+pub fn ProductionExportOptions::new(format? : ProductionExportFormat, delimiter? : String, include_header? : Bool, include_metadata? : Bool, pretty? : Bool, max_records? : Int, metric_prefix? : String, metric_namespace? : String, line_ending? : String) -> Self
+pub fn ProductionExportOptions::pretty(Self) -> Bool
+pub fn ProductionExportOptions::with_format(Self, ProductionExportFormat) -> Self
+
+pub struct ProductionExportRecord {
+  timestamp : Int64
+  metric : String
+  value : Double
+  baseline : Double
+  score : Double
+  health : Double
+  state : String
+  source : String
+}
+pub fn ProductionExportRecord::as_key(Self) -> String
+pub fn ProductionExportRecord::baseline(Self) -> Double
+pub fn ProductionExportRecord::field(Self, ProductionExportField) -> String
+pub fn ProductionExportRecord::health(Self) -> Double
+pub fn ProductionExportRecord::is_finite(Self) -> Bool
+pub fn ProductionExportRecord::metric(Self) -> String
+pub fn ProductionExportRecord::new(Int64, String, Double, baseline? : Double, score? : Double, health? : Double, state? : String, source? : String) -> Self
+pub fn ProductionExportRecord::score(Self) -> Double
+pub fn ProductionExportRecord::source(Self) -> String
+pub fn ProductionExportRecord::state(Self) -> String
+pub fn ProductionExportRecord::timestamp(Self) -> Int64
+pub fn ProductionExportRecord::value(Self) -> Double
+pub fn ProductionExportRecord::with_state(Self, String) -> Self
+
+pub struct ProductionExportStats {
+  mut batches : Int
+  mut records : Int
+  mut bytes : Int
+  failures : Int
+  mut truncated : Int
+}
+pub fn ProductionExportStats::batches(Self) -> Int
+pub fn ProductionExportStats::bytes(Self) -> Int
+pub fn ProductionExportStats::failures(Self) -> Int
+pub fn ProductionExportStats::new() -> Self
+pub fn ProductionExportStats::records(Self) -> Int
+pub fn ProductionExportStats::success_rate(Self) -> Double
+pub fn ProductionExportStats::summary(Self) -> String
+pub fn ProductionExportStats::truncated(Self) -> Int
+
+pub struct ProductionFeature {
+  name : String
+  kind : ProductionFeatureKind
+  value : Double
+  valid : Bool
+  sample_count : Int
+  source_window : Int
+}
+pub fn ProductionFeature::kind(Self) -> ProductionFeatureKind
+pub fn ProductionFeature::name(Self) -> String
+pub fn ProductionFeature::new(ProductionFeatureKind, Double, Int, Int) -> Self
+pub fn ProductionFeature::sample_count(Self) -> Int
+pub fn ProductionFeature::source_window(Self) -> Int
+pub fn ProductionFeature::valid(Self) -> Bool
+pub fn ProductionFeature::value(Self) -> Double
+
+pub struct ProductionFeatureConfig {
+  window_size : Int
+  seasonal_period : Int
+  include_distribution : Bool
+  include_autocorrelation : Bool
+  outlier_threshold : Double
+}
+pub fn ProductionFeatureConfig::include_autocorrelation(Self) -> Bool
+pub fn ProductionFeatureConfig::include_distribution(Self) -> Bool
+pub fn ProductionFeatureConfig::new(window_size? : Int, seasonal_period? : Int, include_distribution? : Bool, include_autocorrelation? : Bool, outlier_threshold? : Double) -> Self
+pub fn ProductionFeatureConfig::outlier_threshold(Self) -> Double
+pub fn ProductionFeatureConfig::seasonal_period(Self) -> Int
+pub fn ProductionFeatureConfig::window_size(Self) -> Int
+
+pub(all) enum ProductionFeatureKind {
+  LevelFeature
+  SpreadFeature
+  TrendFeature
+  VolatilityFeature
+  SkewFeature
+  KurtosisFeature
+  AutocorrelationFeature
+  DifferenceFeature
+  QuantileFeature
+  DistributionEntropyFeature
+  MissingRatioFeature
+  OutlierRatioFeature
+  SeasonalStrengthFeature
+}
+
+pub struct ProductionFeaturePipeline {
+  config : ProductionFeatureConfig
+  windows : Array[ProductionTimeWindow]
+  mut extracted : Int
+  mut invalid : Int
+}
+pub fn ProductionFeaturePipeline::config(Self) -> ProductionFeatureConfig
+pub fn ProductionFeaturePipeline::extract(Self, Array[Double]) -> ProductionFeatureVector
+pub fn ProductionFeaturePipeline::extract_batch(Self, Array[Array[Double]]) -> Array[ProductionFeatureVector]
+pub fn ProductionFeaturePipeline::extract_from_window(Self, ProductionTimeWindow) -> ProductionFeatureVector
+pub fn ProductionFeaturePipeline::extracted(Self) -> Int
+pub fn ProductionFeaturePipeline::feature_names(Self) -> Array[String]
+pub fn ProductionFeaturePipeline::invalid(Self) -> Int
+pub fn ProductionFeaturePipeline::new(config? : ProductionFeatureConfig) -> Self
+
+pub struct ProductionFeatureScaler {
+  centers : Array[Double]
+  scales : Array[Double]
+  mut fitted : Bool
+}
+pub fn ProductionFeatureScaler::centers(Self) -> Array[Double]
+pub fn ProductionFeatureScaler::dimension(Self) -> Int
+pub fn ProductionFeatureScaler::fit(Self, Array[ProductionFeatureVector]) -> Bool
+pub fn ProductionFeatureScaler::inverse(Self, Array[Double]) -> Array[Double]
+pub fn ProductionFeatureScaler::is_fitted(Self) -> Bool
+pub fn ProductionFeatureScaler::new(dimension? : Int) -> Self
+pub fn ProductionFeatureScaler::scales(Self) -> Array[Double]
+pub fn ProductionFeatureScaler::transform(Self, ProductionFeatureVector) -> ProductionFeatureVector
+
+pub struct ProductionFeatureVector {
+  features : Array[ProductionFeature]
+  values : Array[Double]
+  valid_count : Int
+  missing_count : Int
+}
+pub fn ProductionFeatureVector::distance(Self, Self) -> Double
+pub fn ProductionFeatureVector::features(Self) -> Array[ProductionFeature]
+pub fn ProductionFeatureVector::get(Self, String) -> ProductionFeature?
+pub fn ProductionFeatureVector::missing_count(Self) -> Int
+pub fn ProductionFeatureVector::new(Array[ProductionFeature]) -> Self
+pub fn ProductionFeatureVector::summary(Self) -> String
+pub fn ProductionFeatureVector::valid_count(Self) -> Int
+pub fn ProductionFeatureVector::valid_ratio(Self) -> Double
+pub fn ProductionFeatureVector::values(Self) -> Array[Double]
+
+pub(all) enum ProductionFillPolicy {
+  ForwardFill
+  ZeroFill
+  LinearInterpolate
+  SkipEmpty
+}
+
+pub struct ProductionForecastInterval {
+  timestamp : Int64
+  prediction : Double
+  lower : Double
+  upper : Double
+  confidence : Double
+  horizon : Int
+  model : ProductionForecastKind
+}
+pub fn ProductionForecastInterval::confidence(Self) -> Double
+pub fn ProductionForecastInterval::horizon(Self) -> Int
+pub fn ProductionForecastInterval::lower(Self) -> Double
+pub fn ProductionForecastInterval::new(Int64, Double, Double, confidence? : Double, horizon? : Int, model? : ProductionForecastKind) -> Self
+pub fn ProductionForecastInterval::prediction(Self) -> Double
+pub fn ProductionForecastInterval::timestamp(Self) -> Int64
+pub fn ProductionForecastInterval::upper(Self) -> Double
+pub fn ProductionForecastInterval::width(Self) -> Double
+
+pub(all) enum ProductionForecastKind {
+  LastValueForecast
+  MeanForecast
+  HoltForecast
+  SeasonalNaiveForecast
+  HoltWintersForecast
+}
+
+pub struct ProductionForecastScore {
+  model : ProductionForecastKind
+  mae : Double
+  rmse : Double
+  bias : Double
+  coverage : Double
+}
+pub fn ProductionForecastScore::bias(Self) -> Double
+pub fn ProductionForecastScore::coverage(Self) -> Double
+pub fn ProductionForecastScore::mae(Self) -> Double
+pub fn ProductionForecastScore::model(Self) -> ProductionForecastKind
+pub fn ProductionForecastScore::rmse(Self) -> Double
+
+pub struct ProductionForecaster {
+  kind : ProductionForecastKind
+  period : Int
+  horizon : Int
+  window : DoubleWindow
+  holt : HoltForecaster
+  seasonal : ProductionHoltWinters
+  residuals : ProductionQuantileState
+  mut count : Int
+  mut missing : Int
+}
+pub fn ProductionForecaster::count(Self) -> Int
+pub fn ProductionForecaster::forecast(Self, Int64, Int64, horizon? : Int, confidence? : Double) -> Array[ProductionForecastInterval]
+pub fn ProductionForecaster::kind(Self) -> ProductionForecastKind
+pub fn ProductionForecaster::missing(Self) -> Int
+pub fn ProductionForecaster::new(kind? : ProductionForecastKind, window_size? : Int, period? : Int, horizon? : Int) -> Self
+pub fn ProductionForecaster::predict(Self) -> Double
+pub fn ProductionForecaster::uncertainty(Self, confidence? : Double) -> Double
+pub fn ProductionForecaster::update(Self, Double) -> ProductionForecastInterval
+
+pub(all) enum ProductionGuardrailAction {
+  GuardrailAllow
+  GuardrailObserve
+  GuardrailWarn
+  GuardrailBlock
+  GuardrailRollback
+}
+
+pub struct ProductionGuardrailController {
+  mut rules : Array[ProductionGuardrailRule]
+  mut history : Array[ProductionGuardrailDecision]
+  mut failure_streak : Int
+  mut recovery_streak : Int
+  mut sequence : Int64
+  mut blocked : Bool
+  mut paused : Bool
+  mut last_timestamp : Int64
+  mut evaluated : Int
+  mut triggered : Int
+}
+pub fn ProductionGuardrailController::clear_history(Self) -> Unit
+pub fn ProductionGuardrailController::evaluate(Self, ProductionGuardrailObservation) -> ProductionGuardrailDecision
+pub fn ProductionGuardrailController::evaluate_batch(Self, Array[ProductionGuardrailObservation]) -> Array[ProductionGuardrailDecision]
+pub fn ProductionGuardrailController::evaluated(Self) -> Int
+pub fn ProductionGuardrailController::failure_streak(Self) -> Int
+pub fn ProductionGuardrailController::history(Self) -> Array[ProductionGuardrailDecision]
+pub fn ProductionGuardrailController::is_blocked(Self) -> Bool
+pub fn ProductionGuardrailController::is_paused(Self) -> Bool
+pub fn ProductionGuardrailController::latest(Self) -> ProductionGuardrailDecision?
+pub fn ProductionGuardrailController::new() -> Self
+pub fn ProductionGuardrailController::pause(Self) -> Unit
+pub fn ProductionGuardrailController::recovery_streak(Self) -> Int
+pub fn ProductionGuardrailController::register(Self, ProductionGuardrailRule) -> Bool
+pub fn ProductionGuardrailController::remove(Self, String) -> Bool
+pub fn ProductionGuardrailController::resume_guardrail(Self) -> Unit
+pub fn ProductionGuardrailController::rule_count(Self) -> Int
+pub fn ProductionGuardrailController::rules(Self) -> Array[ProductionGuardrailRule]
+pub fn ProductionGuardrailController::summary(Self) -> ProductionGuardrailSummary
+pub fn ProductionGuardrailController::triggered(Self) -> Int
+pub fn ProductionGuardrailController::unblock(Self) -> Unit
+
+pub struct ProductionGuardrailDecision {
+  action : ProductionGuardrailAction
+  rule_name : String
+  metric : ProductionGuardrailMetricKind
+  value : Double
+  threshold : Double
+  score : Double
+  triggered : Bool
+  failure_streak : Int
+  recovery_streak : Int
+  sequence : Int64
+  reason : String
+}
+pub fn ProductionGuardrailDecision::action(Self) -> ProductionGuardrailAction
+pub fn ProductionGuardrailDecision::failure_streak(Self) -> Int
+pub fn ProductionGuardrailDecision::metric(Self) -> ProductionGuardrailMetricKind
+pub fn ProductionGuardrailDecision::reason(Self) -> String
+pub fn ProductionGuardrailDecision::recovery_streak(Self) -> Int
+pub fn ProductionGuardrailDecision::rule_name(Self) -> String
+pub fn ProductionGuardrailDecision::score(Self) -> Double
+pub fn ProductionGuardrailDecision::sequence(Self) -> Int64
+pub fn ProductionGuardrailDecision::summary(Self) -> String
+pub fn ProductionGuardrailDecision::threshold(Self) -> Double
+pub fn ProductionGuardrailDecision::triggered(Self) -> Bool
+pub fn ProductionGuardrailDecision::value(Self) -> Double
+
+pub(all) enum ProductionGuardrailDirection {
+  GuardrailAbove
+  GuardrailBelow
+  GuardrailOutside
+}
+
+pub(all) enum ProductionGuardrailMetricKind {
+  GuardrailErrorRate
+  GuardrailFalsePositiveRate
+  GuardrailDetectionDelay
+  GuardrailDataQuality
+  GuardrailThroughput
+  GuardrailLatency
+  GuardrailCoverage
+  GuardrailDriftScore
+}
+
+pub struct ProductionGuardrailObservation {
+  timestamp : Int64
+  metric : ProductionGuardrailMetricKind
+  value : Double
+  baseline : Double
+  sample_count : Int
+  confidence : Double
+  source : String
+}
+pub fn ProductionGuardrailObservation::baseline(Self) -> Double
+pub fn ProductionGuardrailObservation::confidence(Self) -> Double
+pub fn ProductionGuardrailObservation::is_finite(Self) -> Bool
+pub fn ProductionGuardrailObservation::metric(Self) -> ProductionGuardrailMetricKind
+pub fn ProductionGuardrailObservation::new(Int64, ProductionGuardrailMetricKind, Double, sample_count? : Int, baseline? : Double, confidence? : Double, source? : String) -> Self
+pub fn ProductionGuardrailObservation::relative_change(Self) -> Double
+pub fn ProductionGuardrailObservation::sample_count(Self) -> Int
+pub fn ProductionGuardrailObservation::source(Self) -> String
+pub fn ProductionGuardrailObservation::timestamp(Self) -> Int64
+pub fn ProductionGuardrailObservation::value(Self) -> Double
+
+pub struct ProductionGuardrailRule {
+  name : String
+  metric : ProductionGuardrailMetricKind
+  direction : ProductionGuardrailDirection
+  warning_threshold : Double
+  blocking_threshold : Double
+  rollback_threshold : Double
+  minimum_samples : Int
+  window_size : Int
+  consecutive_failures : Int
+  recovery_samples : Int
+  weight : Double
+  enabled : Bool
+}
+pub fn ProductionGuardrailRule::blocking_threshold(Self) -> Double
+pub fn ProductionGuardrailRule::consecutive_failures(Self) -> Int
+pub fn ProductionGuardrailRule::direction(Self) -> ProductionGuardrailDirection
+pub fn ProductionGuardrailRule::enabled(Self) -> Bool
+pub fn ProductionGuardrailRule::metric(Self) -> ProductionGuardrailMetricKind
+pub fn ProductionGuardrailRule::minimum_samples(Self) -> Int
+pub fn ProductionGuardrailRule::name(Self) -> String
+pub fn ProductionGuardrailRule::new(String, metric? : ProductionGuardrailMetricKind, direction? : ProductionGuardrailDirection, warning_threshold? : Double, blocking_threshold? : Double, rollback_threshold? : Double, minimum_samples? : Int, window_size? : Int, consecutive_failures? : Int, recovery_samples? : Int, weight? : Double, enabled? : Bool) -> Self
+pub fn ProductionGuardrailRule::recovery_samples(Self) -> Int
+pub fn ProductionGuardrailRule::rollback_threshold(Self) -> Double
+pub fn ProductionGuardrailRule::warning_threshold(Self) -> Double
+pub fn ProductionGuardrailRule::weight(Self) -> Double
+pub fn ProductionGuardrailRule::window_size(Self) -> Int
+pub fn ProductionGuardrailRule::with_enabled(Self, Bool) -> Self
+
+pub struct ProductionGuardrailSummary {
+  evaluated : Int
+  triggered : Int
+  blocked : Bool
+  paused : Bool
+  failure_streak : Int
+  recovery_streak : Int
+  risk_score : Double
+}
+pub fn ProductionGuardrailSummary::blocked(Self) -> Bool
+pub fn ProductionGuardrailSummary::evaluated(Self) -> Int
+pub fn ProductionGuardrailSummary::failure_streak(Self) -> Int
+pub fn ProductionGuardrailSummary::paused(Self) -> Bool
+pub fn ProductionGuardrailSummary::recovery_streak(Self) -> Int
+pub fn ProductionGuardrailSummary::risk_score(Self) -> Double
+pub fn ProductionGuardrailSummary::triggered(Self) -> Int
+
+pub(all) enum ProductionHealthState {
+  ColdStart
+  Healthy
+  DegradedQuality
+  AlertingState
+  RecoveringState
+  DisabledState
+}
+
+pub struct ProductionHoltWinters {
+  period : Int
+  alpha : Double
+  beta : Double
+  gamma : Double
+  levels : Array[Double]
+  mut level : Double
+  mut trend : Double
+  mut count : Int
+  mut index : Int
+  mut initialized : Bool
+  residuals : ProductionResidualScale
+}
+pub fn ProductionHoltWinters::count(Self) -> Int
+pub fn ProductionHoltWinters::level(Self) -> Double
+pub fn ProductionHoltWinters::new(period? : Int, alpha? : Double, beta? : Double, gamma? : Double) -> Self
+pub fn ProductionHoltWinters::period(Self) -> Int
+pub fn ProductionHoltWinters::predict(Self, horizon? : Int) -> Double
+pub fn ProductionHoltWinters::predict_interval(Self, Int64, horizon? : Int, confidence? : Double) -> ProductionForecastInterval
+pub fn ProductionHoltWinters::seasonals(Self) -> Array[Double]
+pub fn ProductionHoltWinters::trend(Self) -> Double
+pub fn ProductionHoltWinters::update(Self, Double) -> ForecastPoint
+
+pub struct ProductionIncident {
+  id : Int
+  metric : String
+  first_timestamp : Int64
+  mut last_timestamp : Int64
+  mut alert_count : Int
+  mut max_score : Double
+  mut severity : AlertSeverity
+  mut state : ProductionIncidentState
+  mut acknowledged : Bool
+  mut snooze_until : Int64?
+  mut escalation_level : Int
+  mut recovery_observations : Int
+}
+pub fn ProductionIncident::absorb(Self, ProductionMonitorEvent) -> Bool
+pub fn ProductionIncident::acknowledge(Self) -> Unit
+pub fn ProductionIncident::acknowledged(Self) -> Bool
+pub fn ProductionIncident::alert_count(Self) -> Int
+pub fn ProductionIncident::duration(Self) -> Int64
+pub fn ProductionIncident::escalate(Self) -> Int
+pub fn ProductionIncident::escalation_level(Self) -> Int
+pub fn ProductionIncident::first_timestamp(Self) -> Int64
+pub fn ProductionIncident::id(Self) -> Int
+pub fn ProductionIncident::is_open(Self) -> Bool
+pub fn ProductionIncident::last_timestamp(Self) -> Int64
+pub fn ProductionIncident::max_score(Self) -> Double
+pub fn ProductionIncident::metric(Self) -> String
+pub fn ProductionIncident::new(Int, ProductionMonitorEvent) -> Self
+pub fn ProductionIncident::observe_recovery(Self) -> Unit
+pub fn ProductionIncident::recovery_observations(Self) -> Int
+pub fn ProductionIncident::reopen(Self) -> Unit
+pub fn ProductionIncident::resolve(Self) -> Unit
+pub fn ProductionIncident::severity(Self) -> AlertSeverity
+pub fn ProductionIncident::snooze(Self, Int64) -> Unit
+pub fn ProductionIncident::state(Self) -> ProductionIncidentState
+pub fn ProductionIncident::summary(Self) -> String
+
+pub struct ProductionIncidentManager {
+  policy : ProductionIncidentPolicy
+  incidents : Array[ProductionIncident]
+  mut next_id : Int
+  mut ingested : Int
+  mut grouped : Int
+  mut resolved : Int
+}
+pub fn ProductionIncidentManager::escalate_due(Self) -> Array[ProductionIncident]
+pub fn ProductionIncidentManager::grouped(Self) -> Int
+pub fn ProductionIncidentManager::incident_count(Self) -> Int
+pub fn ProductionIncidentManager::incidents(Self) -> Array[ProductionIncident]
+pub fn ProductionIncidentManager::ingest(Self, ProductionMonitorEvent) -> ProductionIncident
+pub fn ProductionIncidentManager::ingested(Self) -> Int
+pub fn ProductionIncidentManager::new(policy? : ProductionIncidentPolicy) -> Self
+pub fn ProductionIncidentManager::observe_healthy(Self, String, Int64) -> Array[ProductionIncident]
+pub fn ProductionIncidentManager::open_incidents(Self) -> Array[ProductionIncident]
+pub fn ProductionIncidentManager::policy(Self) -> ProductionIncidentPolicy
+pub fn ProductionIncidentManager::reset(Self) -> Unit
+pub fn ProductionIncidentManager::resolved(Self) -> Int
+
+pub struct ProductionIncidentPolicy {
+  grouping_gap : Int64
+  recovery_points : Int
+  escalation_after : Int
+  retention : Int
+}
+pub fn ProductionIncidentPolicy::escalation_after(Self) -> Int
+pub fn ProductionIncidentPolicy::grouping_gap(Self) -> Int64
+pub fn ProductionIncidentPolicy::new(grouping_gap? : Int64, recovery_points? : Int, escalation_after? : Int, retention? : Int) -> Self
+pub fn ProductionIncidentPolicy::recovery_points(Self) -> Int
+pub fn ProductionIncidentPolicy::retention(Self) -> Int
+
+pub(all) enum ProductionIncidentState {
+  OpenIncident
+  AcknowledgedIncident
+  SnoozedIncident
+  ResolvedIncident
+  ReopenedIncident
+}
+
+pub struct ProductionMaintenanceWindow {
+  name : String
+  start : Int64
+  end : Int64
+  reason : String
+}
+pub fn ProductionMaintenanceWindow::contains(Self, Int64) -> Bool
+pub fn ProductionMaintenanceWindow::duration(Self) -> Int64
+pub fn ProductionMaintenanceWindow::end(Self) -> Int64
+pub fn ProductionMaintenanceWindow::name(Self) -> String
+pub fn ProductionMaintenanceWindow::new(String, Int64, Int64, reason? : String) -> Self
+pub fn ProductionMaintenanceWindow::reason(Self) -> String
+pub fn ProductionMaintenanceWindow::start(Self) -> Int64
+
+pub struct ProductionMetricCatalog {
+  series : Array[ProductionMetricSeries]
+  mut ingested : Int
+  mut rejected : Int
+}
+pub fn ProductionMetricCatalog::find(Self, String) -> ProductionMetricSeries?
+pub fn ProductionMetricCatalog::ingest(Self, String, ProductionSample) -> Bool
+pub fn ProductionMetricCatalog::ingest_point(Self, String, SignalPoint) -> Bool
+pub fn ProductionMetricCatalog::ingested(Self) -> Int
+pub fn ProductionMetricCatalog::metric_count(Self) -> Int
+pub fn ProductionMetricCatalog::names(Self) -> Array[String]
+pub fn ProductionMetricCatalog::new() -> Self
+pub fn ProductionMetricCatalog::register(Self, ProductionMetricSeries) -> Bool
+pub fn ProductionMetricCatalog::rejected(Self) -> Int
+pub fn ProductionMetricCatalog::relations(Self, correlation_threshold? : Double) -> Array[ProductionMetricRelation]
+pub fn ProductionMetricCatalog::series(Self) -> Array[ProductionMetricSeries]
+pub fn ProductionMetricCatalog::summary(Self) -> ProductionCatalogSummary
+
+pub struct ProductionMetricFrame {
+  timestamp : Int64
+  names : Array[String]
+  values : Array[Double]
+  valid : Array[Bool]
+}
+pub fn ProductionMetricFrame::dimension(Self) -> Int
+pub fn ProductionMetricFrame::is_complete(Self) -> Bool
+pub fn ProductionMetricFrame::names(Self) -> Array[String]
+pub fn ProductionMetricFrame::new(Int64, Array[String], Array[Double]) -> Self
+pub fn ProductionMetricFrame::timestamp(Self) -> Int64
+pub fn ProductionMetricFrame::valid_count(Self) -> Int
+pub fn ProductionMetricFrame::values(Self) -> Array[Double]
+
+pub struct ProductionMetricRelation {
+  left : String
+  right : String
+  correlation : Double
+  distance : Double
+  related : Bool
+}
+pub fn ProductionMetricRelation::correlation(Self) -> Double
+pub fn ProductionMetricRelation::distance(Self) -> Double
+pub fn ProductionMetricRelation::left(Self) -> String
+pub fn ProductionMetricRelation::related(Self) -> Bool
+pub fn ProductionMetricRelation::right(Self) -> String
+
+pub struct ProductionMetricSeries {
+  name : String
+  unit : String
+  window : ProductionTimeWindow
+  mut updates : Int
+  mut invalid : Int
+}
+pub fn ProductionMetricSeries::change_score(Self, Int) -> Double
+pub fn ProductionMetricSeries::correlation(Self, Self) -> Double
+pub fn ProductionMetricSeries::invalid(Self) -> Int
+pub fn ProductionMetricSeries::latest(Self) -> ProductionSample?
+pub fn ProductionMetricSeries::name(Self) -> String
+pub fn ProductionMetricSeries::new(String, unit? : String, capacity? : Int) -> Self
+pub fn ProductionMetricSeries::push(Self, ProductionSample) -> Bool
+pub fn ProductionMetricSeries::push_point(Self, SignalPoint) -> Bool
+pub fn ProductionMetricSeries::summary(Self) -> ProductionWindowSummary
+pub fn ProductionMetricSeries::unit(Self) -> String
+pub fn ProductionMetricSeries::updates(Self) -> Int
+pub fn ProductionMetricSeries::values(Self) -> Array[Double]
+pub fn ProductionMetricSeries::window(Self) -> ProductionTimeWindow
+
+pub struct ProductionMonitor {
+  config : ProductionMonitorConfig
+  detector : PipelineDetector
+  baseline_window : DoubleWindow
+  recent_window : ProductionTimeWindow
+  events : Array[ProductionMonitorEvent]
+  mut state : ProductionHealthState
+  mut processed : Int
+  mut valid : Int
+  mut invalid : Int
+  mut changes : Int
+  mut emitted : Int
+  mut suppressed : Int
+  mut recovery_count : Int
+  mut consecutive_healthy : Int
+  mut consecutive_alerts : Int
+  mut ordinal : Int
+  mut latest_score : Double
+  mut latest_baseline : Double
+  mut latest_value : Double
+  mut last_timestamp : Int64
+  mut last_value : Double?
+}
+pub fn ProductionMonitor::changes(Self) -> Int
+pub fn ProductionMonitor::checkpoint(Self) -> ProductionMonitorCheckpoint
+pub fn ProductionMonitor::config(Self) -> ProductionMonitorConfig
+pub fn ProductionMonitor::emitted(Self) -> Int
+pub fn ProductionMonitor::event_count(Self) -> Int
+pub fn ProductionMonitor::events(Self) -> Array[ProductionMonitorEvent]
+pub fn ProductionMonitor::invalid(Self) -> Int
+pub fn ProductionMonitor::latest_baseline(Self) -> Double
+pub fn ProductionMonitor::latest_score(Self) -> Double
+pub fn ProductionMonitor::latest_value(Self) -> Double
+pub fn ProductionMonitor::new(ProductionMonitorConfig, PipelineDetector) -> Self
+pub fn ProductionMonitor::processed(Self) -> Int
+pub fn ProductionMonitor::recent_summary(Self) -> ProductionWindowSummary
+pub fn ProductionMonitor::recent_values(Self) -> Array[Double]
+pub fn ProductionMonitor::recovery_count(Self) -> Int
+pub fn ProductionMonitor::reset(Self) -> Unit
+pub fn ProductionMonitor::snapshot(Self) -> ProductionMonitorSnapshot
+pub fn ProductionMonitor::state(Self) -> ProductionHealthState
+pub fn ProductionMonitor::suppressed(Self) -> Int
+pub fn ProductionMonitor::update(Self, ProductionSample) -> ProductionMonitorEvent?
+pub fn ProductionMonitor::update_batch(Self, Array[ProductionSample]) -> Array[ProductionMonitorEvent]
+pub fn ProductionMonitor::update_point(Self, SignalPoint) -> ProductionMonitorEvent?
+pub fn ProductionMonitor::valid(Self) -> Int
+
+pub struct ProductionMonitorCheckpoint {
+  config_fingerprint : String
+  processed : Int
+  valid : Int
+  invalid : Int
+  changes : Int
+  emitted : Int
+  suppressed : Int
+  recovery_count : Int
+  last_timestamp : Int64
+  baseline : Double
+  latest_value : Double
+  latest_score : Double
+  state : ProductionHealthState
+  baseline_values : Array[Double]
+  recent_values : Array[Double]
+}
+pub fn ProductionMonitorCheckpoint::baseline(Self) -> Double
+pub fn ProductionMonitorCheckpoint::changes(Self) -> Int
+pub fn ProductionMonitorCheckpoint::fingerprint(Self) -> String
+pub fn ProductionMonitorCheckpoint::invalid(Self) -> Int
+pub fn ProductionMonitorCheckpoint::latest_value(Self) -> Double
+pub fn ProductionMonitorCheckpoint::processed(Self) -> Int
+pub fn ProductionMonitorCheckpoint::recent_values(Self) -> Array[Double]
+pub fn ProductionMonitorCheckpoint::state(Self) -> ProductionHealthState
+pub fn ProductionMonitorCheckpoint::valid(Self) -> Int
+
+pub struct ProductionMonitorConfig {
+  name : String
+  mode : ProductionMonitorMode
+  missing_values : MissingValueStrategy
+  baseline : ProductionBaselineStrategy
+  fixed_baseline : Double
+  detection : ProductionDetectionConfig
+  window : ProductionWindowConfig
+  alerts : ProductionAlertConfig
+  dimensions : Int
+  version : Int
+}
+pub fn ProductionMonitorConfig::alerts(Self) -> ProductionAlertConfig
+pub fn ProductionMonitorConfig::baseline(Self) -> ProductionBaselineStrategy
+pub fn ProductionMonitorConfig::detection(Self) -> ProductionDetectionConfig
+pub fn ProductionMonitorConfig::dimensions(Self) -> Int
+pub fn ProductionMonitorConfig::fingerprint(Self) -> String
+pub fn ProductionMonitorConfig::fixed_baseline(Self) -> Double
+pub fn ProductionMonitorConfig::is_actionable(Self, DetectionResult) -> Bool
+pub fn ProductionMonitorConfig::is_valid(Self) -> Bool
+pub fn ProductionMonitorConfig::missing_values(Self) -> MissingValueStrategy
+pub fn ProductionMonitorConfig::mode(Self) -> ProductionMonitorMode
+pub fn ProductionMonitorConfig::name(Self) -> String
+pub fn ProductionMonitorConfig::new(name? : String, mode? : ProductionMonitorMode, missing_values? : MissingValueStrategy, baseline? : ProductionBaselineStrategy, fixed_baseline? : Double, detection? : ProductionDetectionConfig, window? : ProductionWindowConfig, alerts? : ProductionAlertConfig, dimensions? : Int, version? : Int) -> Self
+pub fn ProductionMonitorConfig::next_version(Self) -> Self
+pub fn ProductionMonitorConfig::summary(Self) -> String
+pub fn ProductionMonitorConfig::validate(Self) -> Array[ProductionConfigIssue]
+pub fn ProductionMonitorConfig::version(Self) -> Int
+pub fn ProductionMonitorConfig::window(Self) -> ProductionWindowConfig
+
+pub struct ProductionMonitorEvent {
+  metric : String
+  timestamp : Int64
+  sequence : Int
+  kind : ProductionMonitorEventKind
+  state : ProductionHealthState
+  result : DetectionResult
+  baseline : Double
+  value : Double
+  message : String
+  ordinal : Int
+}
+pub fn ProductionMonitorEvent::baseline(Self) -> Double
+pub fn ProductionMonitorEvent::kind(Self) -> ProductionMonitorEventKind
+pub fn ProductionMonitorEvent::message(Self) -> String
+pub fn ProductionMonitorEvent::metric(Self) -> String
+pub fn ProductionMonitorEvent::ordinal(Self) -> Int
+pub fn ProductionMonitorEvent::result(Self) -> DetectionResult
+pub fn ProductionMonitorEvent::sequence(Self) -> Int
+pub fn ProductionMonitorEvent::state(Self) -> ProductionHealthState
+pub fn ProductionMonitorEvent::summary(Self) -> String
+pub fn ProductionMonitorEvent::timestamp(Self) -> Int64
+pub fn ProductionMonitorEvent::value(Self) -> Double
+
+pub(all) enum ProductionMonitorEventKind {
+  Observation
+  InvalidInput
+  WarmupObservation
+  ChangeDetected
+  AlertEmitted
+  AlertSuppressed
+  RecoveryStarted
+  RecoveryCompleted
+  QualityDegraded
+}
+
+pub(all) enum ProductionMonitorMode {
+  ObserveOnly
+  Alerting
+  Backfill
+  Replay
+}
+
+pub struct ProductionMonitorSnapshot {
+  name : String
+  state : ProductionHealthState
+  processed : Int
+  valid : Int
+  invalid : Int
+  warmup_remaining : Int
+  changes : Int
+  emitted : Int
+  suppressed : Int
+  recovery_count : Int
+  latest_score : Double
+  baseline : Double
+  latest_value : Double
+  quality_ratio : Double
+  last_timestamp : Int64
+}
+pub fn ProductionMonitorSnapshot::baseline(Self) -> Double
+pub fn ProductionMonitorSnapshot::changes(Self) -> Int
+pub fn ProductionMonitorSnapshot::emitted(Self) -> Int
+pub fn ProductionMonitorSnapshot::invalid(Self) -> Int
+pub fn ProductionMonitorSnapshot::is_healthy(Self) -> Bool
+pub fn ProductionMonitorSnapshot::last_timestamp(Self) -> Int64
+pub fn ProductionMonitorSnapshot::latest_score(Self) -> Double
+pub fn ProductionMonitorSnapshot::latest_value(Self) -> Double
+pub fn ProductionMonitorSnapshot::name(Self) -> String
+pub fn ProductionMonitorSnapshot::processed(Self) -> Int
+pub fn ProductionMonitorSnapshot::quality_ratio(Self) -> Double
+pub fn ProductionMonitorSnapshot::recovery_count(Self) -> Int
+pub fn ProductionMonitorSnapshot::state(Self) -> ProductionHealthState
+pub fn ProductionMonitorSnapshot::summary(Self) -> String
+pub fn ProductionMonitorSnapshot::suppressed(Self) -> Int
+pub fn ProductionMonitorSnapshot::valid(Self) -> Int
+pub fn ProductionMonitorSnapshot::warmup_remaining(Self) -> Int
+
+pub struct ProductionOnlineCalibrator {
+  bins : Array[ProductionScoreBin]
+  mode : ProductionCalibrationMode
+  mut observations : Int
+  mut positive : Int
+  mut negative : Int
+}
+pub fn ProductionOnlineCalibrator::bin_count(Self) -> Int
+pub fn ProductionOnlineCalibrator::bins(Self) -> Array[ProductionScoreBin]
+pub fn ProductionOnlineCalibrator::calibrate(Self, Double) -> Double
+pub fn ProductionOnlineCalibrator::mode(Self) -> ProductionCalibrationMode
+pub fn ProductionOnlineCalibrator::negative(Self) -> Int
+pub fn ProductionOnlineCalibrator::new(bin_count? : Int, mode? : ProductionCalibrationMode) -> Self
+pub fn ProductionOnlineCalibrator::observations(Self) -> Int
+pub fn ProductionOnlineCalibrator::positive(Self) -> Int
+pub fn ProductionOnlineCalibrator::reliability_error(Self) -> Double
+pub fn ProductionOnlineCalibrator::reset(Self) -> Unit
+pub fn ProductionOnlineCalibrator::update(Self, Double, Bool, weight? : Double) -> Unit
+
+pub struct ProductionPolicyEngine {
+  rules : Array[ProductionDeliveryRule]
+  schedule : ProductionSuppressionSchedule
+  budget : ProductionEventBudget
+  recent : Array[ProductionAlertEnvelope]
+  mut evaluated : Int
+  mut delivered : Int
+  mut suppressed : Int
+  mut duplicates : Int
+}
+pub fn ProductionPolicyEngine::add_maintenance(Self, ProductionMaintenanceWindow) -> Bool
+pub fn ProductionPolicyEngine::add_rule(Self, ProductionDeliveryRule) -> Unit
+pub fn ProductionPolicyEngine::delivered(Self) -> Int
+pub fn ProductionPolicyEngine::duplicates(Self) -> Int
+pub fn ProductionPolicyEngine::evaluate(Self, AlertEvent) -> Array[ProductionDeliveryDecision]
+pub fn ProductionPolicyEngine::evaluated(Self) -> Int
+pub fn ProductionPolicyEngine::new(budget? : ProductionEventBudget) -> Self
+pub fn ProductionPolicyEngine::reset(Self) -> Unit
+pub fn ProductionPolicyEngine::rules(Self) -> Array[ProductionDeliveryRule]
+pub fn ProductionPolicyEngine::suppressed(Self) -> Int
+
+pub struct ProductionPreprocessingReport {
+  mut input_count : Int
+  mut output_count : Int
+  mut invalid_input : Int
+  mut invalid_output : Int
+  mut clipped : Int
+  mut imputed : Int
+  mut transformed : Int
+  mut finite : Bool
+}
+pub fn ProductionPreprocessingReport::clipped(Self) -> Int
+pub fn ProductionPreprocessingReport::empty() -> Self
+pub fn ProductionPreprocessingReport::finite(Self) -> Bool
+pub fn ProductionPreprocessingReport::imputed(Self) -> Int
+pub fn ProductionPreprocessingReport::input_count(Self) -> Int
+pub fn ProductionPreprocessingReport::invalid_input(Self) -> Int
+pub fn ProductionPreprocessingReport::invalid_output(Self) -> Int
+pub fn ProductionPreprocessingReport::output_count(Self) -> Int
+pub fn ProductionPreprocessingReport::quality(Self) -> Double
+pub fn ProductionPreprocessingReport::summary(Self) -> String
+pub fn ProductionPreprocessingReport::transformed(Self) -> Int
+
+pub struct ProductionPreprocessor {
+  specs : Array[ProductionTransformSpec]
+  missing : MissingValueStrategy
+  mut batches : Int
+  mut values : Int
+  mut failed : Int
+}
+pub fn ProductionPreprocessor::add(Self, ProductionTransformSpec) -> Unit
+pub fn ProductionPreprocessor::batches(Self) -> Int
+pub fn ProductionPreprocessor::clear(Self) -> Unit
+pub fn ProductionPreprocessor::failed(Self) -> Int
+pub fn ProductionPreprocessor::new(missing? : MissingValueStrategy) -> Self
+pub fn ProductionPreprocessor::specs(Self) -> Array[ProductionTransformSpec]
+pub fn ProductionPreprocessor::transform(Self, Array[Double]) -> (Array[Double], ProductionPreprocessingReport)
+pub fn ProductionPreprocessor::transform_batches(Self, Array[Array[Double]]) -> Array[Array[Double]]
+pub fn ProductionPreprocessor::transform_points(Self, Array[SignalPoint]) -> (Array[SignalPoint], ProductionPreprocessingReport)
+pub fn ProductionPreprocessor::values(Self) -> Int
+
+pub struct ProductionQuantileState {
+  capacity : Int
+  residuals : Array[Double]
+  mut cursor : Int
+}
+pub fn ProductionQuantileState::absolute_quantile(Self, Double) -> Double
+pub fn ProductionQuantileState::count(Self) -> Int
+pub fn ProductionQuantileState::middle_spread(Self) -> Double
+pub fn ProductionQuantileState::new(capacity? : Int) -> Self
+pub fn ProductionQuantileState::push(Self, Double) -> Unit
+pub fn ProductionQuantileState::quantile(Self, Double) -> Double
+
+pub struct ProductionQueryResult {
+  metric : String
+  window : ProductionQueryWindow
+  function : ProductionWindowFunction
+  value : Double
+  count : Int
+  quality : Double
+}
+pub fn ProductionQueryResult::count(Self) -> Int
+pub fn ProductionQueryResult::function(Self) -> ProductionWindowFunction
+pub fn ProductionQueryResult::metric(Self) -> String
+pub fn ProductionQueryResult::quality(Self) -> Double
+pub fn ProductionQueryResult::summary(Self) -> String
+pub fn ProductionQueryResult::value(Self) -> Double
+pub fn ProductionQueryResult::window(Self) -> ProductionQueryWindow
+
+pub struct ProductionQueryWindow {
+  start : Int64
+  end : Int64
+}
+pub fn ProductionQueryWindow::contains(Self, Int64) -> Bool
+pub fn ProductionQueryWindow::duration(Self) -> Int64
+pub fn ProductionQueryWindow::end(Self) -> Int64
+pub fn ProductionQueryWindow::new(Int64, Int64) -> Self
+pub fn ProductionQueryWindow::start(Self) -> Int64
+
+pub struct ProductionRateSummary {
+  samples : Int
+  resets : Int
+  invalid : Int
+  mean_rate : Double
+  maximum_rate : Double
+  latest_rate : Double
+}
+pub fn ProductionRateSummary::from_points(Array[SignalPoint]) -> Self
+pub fn ProductionRateSummary::invalid(Self) -> Int
+pub fn ProductionRateSummary::latest_rate(Self) -> Double
+pub fn ProductionRateSummary::maximum_rate(Self) -> Double
+pub fn ProductionRateSummary::mean_rate(Self) -> Double
+pub fn ProductionRateSummary::resets(Self) -> Int
+pub fn ProductionRateSummary::samples(Self) -> Int
+
+pub struct ProductionRateTracker {
+  mut previous_timestamp : Int64?
+  mut previous_value : Double?
+  mut resets : Int
+  mut invalid : Int
+}
+pub fn ProductionRateTracker::invalid(Self) -> Int
+pub fn ProductionRateTracker::new() -> Self
+pub fn ProductionRateTracker::push(Self, Int64, Double) -> Double?
+pub fn ProductionRateTracker::resets(Self) -> Int
+
+pub struct ProductionReadinessCheck {
+  name : String
+  passed : Bool
+  critical : Bool
+  value : Double
+  expected : Double
+  message : String
+}
+pub fn ProductionReadinessCheck::critical(Self) -> Bool
+pub fn ProductionReadinessCheck::expected(Self) -> Double
+pub fn ProductionReadinessCheck::message(Self) -> String
+pub fn ProductionReadinessCheck::name(Self) -> String
+pub fn ProductionReadinessCheck::new(String, Bool, Double, Double, message? : String, critical? : Bool) -> Self
+pub fn ProductionReadinessCheck::passed(Self) -> Bool
+pub fn ProductionReadinessCheck::summary(Self) -> String
+pub fn ProductionReadinessCheck::value(Self) -> Double
+
+pub struct ProductionReadinessReport {
+  checks : Array[ProductionReadinessCheck]
+  passed : Bool
+  critical_failures : Int
+  warnings : Int
+  status : ProductionServiceStatus
+}
+pub fn ProductionReadinessReport::checks(Self) -> Array[ProductionReadinessCheck]
+pub fn ProductionReadinessReport::critical_failures(Self) -> Int
+pub fn ProductionReadinessReport::from_checks(Array[ProductionReadinessCheck]) -> Self
+pub fn ProductionReadinessReport::markdown(Self) -> String
+pub fn ProductionReadinessReport::passed(Self) -> Bool
+pub fn ProductionReadinessReport::status(Self) -> ProductionServiceStatus
+pub fn ProductionReadinessReport::summary(Self) -> String
+pub fn ProductionReadinessReport::warnings(Self) -> Int
+
+pub struct ProductionReplayConfig {
+  mode : ProductionReplayMode
+  start_timestamp : Int64
+  step : Int64
+  maximum_points : Int
+  compare_tolerance : Double
+  include_quiet : Bool
+}
+pub fn ProductionReplayConfig::compare_tolerance(Self) -> Double
+pub fn ProductionReplayConfig::include_quiet(Self) -> Bool
+pub fn ProductionReplayConfig::maximum_points(Self) -> Int
+pub fn ProductionReplayConfig::mode(Self) -> ProductionReplayMode
+pub fn ProductionReplayConfig::new(mode? : ProductionReplayMode, start_timestamp? : Int64, step? : Int64, maximum_points? : Int, compare_tolerance? : Double, include_quiet? : Bool) -> Self
+pub fn ProductionReplayConfig::start_timestamp(Self) -> Int64
+pub fn ProductionReplayConfig::step(Self) -> Int64
+
+pub struct ProductionReplayDifference {
+  points_delta : Int
+  changes_delta : Int
+  emitted_delta : Int
+  checksum_delta : Double
+  score_delta : Double
+  equivalent : Bool
+}
+pub fn ProductionReplayDifference::changes_delta(Self) -> Int
+pub fn ProductionReplayDifference::checksum_delta(Self) -> Double
+pub fn ProductionReplayDifference::emitted_delta(Self) -> Int
+pub fn ProductionReplayDifference::equivalent(Self) -> Bool
+pub fn ProductionReplayDifference::from_summaries(ProductionReplaySummary, ProductionReplaySummary, tolerance? : Double) -> Self
+pub fn ProductionReplayDifference::points_delta(Self) -> Int
+pub fn ProductionReplayDifference::score_delta(Self) -> Double
+pub fn ProductionReplayDifference::summary(Self) -> String
+
+pub(all) enum ProductionReplayMode {
+  StatefulReplay
+  ShadowReplay
+  CompareReplay
+}
+
+pub struct ProductionReplayObservation {
+  index : Int
+  timestamp : Int64
+  value : Double
+  baseline : Double
+  result : DetectionResult
+  state : ProductionHealthState
+  emitted : Bool
+}
+pub fn ProductionReplayObservation::baseline(Self) -> Double
+pub fn ProductionReplayObservation::emitted(Self) -> Bool
+pub fn ProductionReplayObservation::index(Self) -> Int
+pub fn ProductionReplayObservation::result(Self) -> DetectionResult
+pub fn ProductionReplayObservation::state(Self) -> ProductionHealthState
+pub fn ProductionReplayObservation::summary(Self) -> String
+pub fn ProductionReplayObservation::timestamp(Self) -> Int64
+pub fn ProductionReplayObservation::value(Self) -> Double
+
+pub struct ProductionReplayRunner {
+  config : ProductionReplayConfig
+  observations : Array[ProductionReplayObservation]
+  mut skipped : Int
+}
+pub fn ProductionReplayRunner::config(Self) -> ProductionReplayConfig
+pub fn ProductionReplayRunner::new(config? : ProductionReplayConfig) -> Self
+pub fn ProductionReplayRunner::observations(Self) -> Array[ProductionReplayObservation]
+pub fn ProductionReplayRunner::reset(Self) -> Unit
+pub fn ProductionReplayRunner::run(Self, ProductionMonitor, Array[SignalPoint]) -> ProductionReplaySummary
+pub fn ProductionReplayRunner::skipped(Self) -> Int
+
+pub struct ProductionReplaySummary {
+  points : Int
+  valid : Int
+  invalid : Int
+  changes : Int
+  emitted : Int
+  suppressed : Int
+  checksum : Double
+  first_change : Int
+  mean_score : Double
+  maximum_score : Double
+  final_state : ProductionHealthState
+}
+pub fn ProductionReplaySummary::changes(Self) -> Int
+pub fn ProductionReplaySummary::checksum(Self) -> Double
+pub fn ProductionReplaySummary::emitted(Self) -> Int
+pub fn ProductionReplaySummary::final_state(Self) -> ProductionHealthState
+pub fn ProductionReplaySummary::first_change(Self) -> Int
+pub fn ProductionReplaySummary::invalid(Self) -> Int
+pub fn ProductionReplaySummary::maximum_score(Self) -> Double
+pub fn ProductionReplaySummary::mean_score(Self) -> Double
+pub fn ProductionReplaySummary::points(Self) -> Int
+pub fn ProductionReplaySummary::summary(Self) -> String
+pub fn ProductionReplaySummary::suppressed(Self) -> Int
+pub fn ProductionReplaySummary::valid(Self) -> Int
+
+pub(all) enum ProductionReportFormat {
+  CsvReport
+  MarkdownReport
+  LineReport
+}
+
+pub struct ProductionReportOptions {
+  format : ProductionReportFormat
+  include_events : Bool
+  include_features : Bool
+  maximum_rows : Int
+  decimals : Int
+}
+pub fn ProductionReportOptions::decimals(Self) -> Int
+pub fn ProductionReportOptions::format(Self) -> ProductionReportFormat
+pub fn ProductionReportOptions::include_events(Self) -> Bool
+pub fn ProductionReportOptions::include_features(Self) -> Bool
+pub fn ProductionReportOptions::maximum_rows(Self) -> Int
+pub fn ProductionReportOptions::new(format? : ProductionReportFormat, include_events? : Bool, include_features? : Bool, maximum_rows? : Int, decimals? : Int) -> Self
+
+pub struct ProductionResampler {
+  step : Int64
+  policy : ProductionFillPolicy
+  mut origin : Int64?
+  mut last : ProductionSample?
+  mut pending_empty : Int
+  mut produced : Int
+}
+pub fn ProductionResampler::flush(Self) -> Array[ProductionSample]
+pub fn ProductionResampler::new(step? : Int64, policy? : ProductionFillPolicy) -> Self
+pub fn ProductionResampler::pending_empty(Self) -> Int
+pub fn ProductionResampler::produced(Self) -> Int
+pub fn ProductionResampler::push(Self, ProductionSample) -> Array[ProductionSample]
+pub fn ProductionResampler::step(Self) -> Int64
+
+pub struct ProductionResidualScale {
+  alpha : Double
+  mut center : Double
+  mut deviation : Double
+  mut count : Int
+  mut missing : Int
+}
+pub fn ProductionResidualScale::center(Self) -> Double
+pub fn ProductionResidualScale::count(Self) -> Int
+pub fn ProductionResidualScale::deviation(Self) -> Double
+pub fn ProductionResidualScale::missing(Self) -> Int
+pub fn ProductionResidualScale::new(alpha? : Double) -> Self
+pub fn ProductionResidualScale::uncertainty(Self, confidence? : Double) -> Double
+pub fn ProductionResidualScale::update(Self, Double) -> Double
+
+pub struct ProductionRolloutPlan {
+  name : String
+  stages : Array[ProductionRolloutStage]
+  mut active_stage : Int
+  mut started_at : Int64
+  mut completed : Bool
+  mut aborted : Bool
+}
+pub fn ProductionRolloutPlan::abort(Self) -> Unit
+pub fn ProductionRolloutPlan::active_stage(Self) -> Int
+pub fn ProductionRolloutPlan::add_stage(Self, ProductionRolloutStage) -> Unit
+pub fn ProductionRolloutPlan::current_stage(Self) -> ProductionRolloutStage?
+pub fn ProductionRolloutPlan::describe(Self) -> String
+pub fn ProductionRolloutPlan::is_aborted(Self) -> Bool
+pub fn ProductionRolloutPlan::is_completed(Self) -> Bool
+pub fn ProductionRolloutPlan::name(Self) -> String
+pub fn ProductionRolloutPlan::new(String) -> Self
+pub fn ProductionRolloutPlan::promote(Self, Int64, Double) -> Bool
+pub fn ProductionRolloutPlan::stage_count(Self) -> Int
+pub fn ProductionRolloutPlan::stages(Self) -> Array[ProductionRolloutStage]
+pub fn ProductionRolloutPlan::start(Self, Int64) -> Bool
+pub fn ProductionRolloutPlan::started_at(Self) -> Int64
+pub fn ProductionRolloutPlan::validate(Self) -> Array[String]
+
+pub struct ProductionRolloutStage {
+  name : String
+  exposure : Double
+  minimum_duration : Int64
+  maximum_duration : Int64
+  required_health : Double
+  automatic_promotion : Bool
+}
+pub fn ProductionRolloutStage::automatic_promotion(Self) -> Bool
+pub fn ProductionRolloutStage::exposure(Self) -> Double
+pub fn ProductionRolloutStage::maximum_duration(Self) -> Int64
+pub fn ProductionRolloutStage::minimum_duration(Self) -> Int64
+pub fn ProductionRolloutStage::name(Self) -> String
+pub fn ProductionRolloutStage::new(String, exposure? : Double, minimum_duration? : Int64, maximum_duration? : Int64, required_health? : Double, automatic_promotion? : Bool) -> Self
+pub fn ProductionRolloutStage::required_health(Self) -> Double
+
+pub struct ProductionSample {
+  timestamp : Int64
+  value : Double
+  sequence : Int
+  imputed : Bool
+  late : Bool
+}
+pub fn ProductionSample::imputed(Self) -> Bool
+pub fn ProductionSample::late(Self) -> Bool
+pub fn ProductionSample::new(Int64, Double, sequence? : Int, imputed? : Bool, late? : Bool) -> Self
+pub fn ProductionSample::sequence(Self) -> Int
+pub fn ProductionSample::timestamp(Self) -> Int64
+pub fn ProductionSample::value(Self) -> Double
+
+pub struct ProductionSampleQueue {
+  capacity : Int
+  policy : ProductionBackpressurePolicy
+  samples : Array[ProductionSample]
+  mut accepted : Int
+  mut dropped : Int
+  mut rejected : Int
+}
+pub fn ProductionSampleQueue::accepted(Self) -> Int
+pub fn ProductionSampleQueue::capacity(Self) -> Int
+pub fn ProductionSampleQueue::clear(Self) -> Unit
+pub fn ProductionSampleQueue::drain(Self) -> Array[ProductionSample]
+pub fn ProductionSampleQueue::dropped(Self) -> Int
+pub fn ProductionSampleQueue::length(Self) -> Int
+pub fn ProductionSampleQueue::new(capacity? : Int, policy? : ProductionBackpressurePolicy) -> Self
+pub fn ProductionSampleQueue::peek(Self) -> ProductionSample?
+pub fn ProductionSampleQueue::policy(Self) -> ProductionBackpressurePolicy
+pub fn ProductionSampleQueue::pop(Self) -> ProductionSample?
+pub fn ProductionSampleQueue::push(Self, ProductionSample) -> Bool
+pub fn ProductionSampleQueue::rejected(Self) -> Int
+
+pub struct ProductionScoreBin {
+  lower : Double
+  upper : Double
+  mut total : Double
+  mut positives : Double
+  prior_positive : Double
+  prior_negative : Double
+}
+pub fn ProductionScoreBin::add(Self, Bool, Double) -> Unit
+pub fn ProductionScoreBin::contains(Self, Double) -> Bool
+pub fn ProductionScoreBin::mean_score(Self) -> Double
+pub fn ProductionScoreBin::new(Double, Double, prior_positive? : Double, prior_negative? : Double) -> Self
+pub fn ProductionScoreBin::positives(Self) -> Double
+pub fn ProductionScoreBin::rate(Self) -> Double
+pub fn ProductionScoreBin::summary(Self) -> String
+pub fn ProductionScoreBin::total(Self) -> Double
+
+pub struct ProductionSeriesQuery {
+  metric : String
+  window : ProductionQueryWindow
+  function : ProductionWindowFunction
+  minimum_quality : Double
+}
+pub fn ProductionSeriesQuery::execute(Self, ProductionMetricSeries) -> ProductionQueryResult
+pub fn ProductionSeriesQuery::function(Self) -> ProductionWindowFunction
+pub fn ProductionSeriesQuery::metric(Self) -> String
+pub fn ProductionSeriesQuery::minimum_quality(Self) -> Double
+pub fn ProductionSeriesQuery::new(String, ProductionQueryWindow, function? : ProductionWindowFunction, minimum_quality? : Double) -> Self
+pub fn ProductionSeriesQuery::window(Self) -> ProductionQueryWindow
+
+pub struct ProductionServiceHeartbeat {
+  service : String
+  timestamp : Int64
+  status : ProductionServiceStatus
+  monitor_count : Int
+  fleet_score : Double
+  processed : Int
+  alerts : Int
+  incidents : Int
+  p95_latency : Double
+}
+pub fn ProductionServiceHeartbeat::alerts(Self) -> Int
+pub fn ProductionServiceHeartbeat::fleet_score(Self) -> Double
+pub fn ProductionServiceHeartbeat::incidents(Self) -> Int
+pub fn ProductionServiceHeartbeat::monitor_count(Self) -> Int
+pub fn ProductionServiceHeartbeat::new(String, Int64, Array[ProductionMonitorSnapshot], Int, p95_latency? : Double) -> Self
+pub fn ProductionServiceHeartbeat::p95_latency(Self) -> Double
+pub fn ProductionServiceHeartbeat::processed(Self) -> Int
+pub fn ProductionServiceHeartbeat::service(Self) -> String
+pub fn ProductionServiceHeartbeat::status(Self) -> ProductionServiceStatus
+pub fn ProductionServiceHeartbeat::summary(Self) -> String
+pub fn ProductionServiceHeartbeat::timestamp(Self) -> Int64
+
+pub struct ProductionServiceRegistry {
+  service : String
+  monitors : Array[ProductionMonitor]
+  mut heartbeats : Int
+  mut status : ProductionServiceStatus
+}
+pub fn ProductionServiceRegistry::heartbeat(Self, Int64, Int, p95_latency? : Double) -> ProductionServiceHeartbeat
+pub fn ProductionServiceRegistry::heartbeats(Self) -> Int
+pub fn ProductionServiceRegistry::monitor_count(Self) -> Int
+pub fn ProductionServiceRegistry::names(Self) -> Array[String]
+pub fn ProductionServiceRegistry::new(service? : String) -> Self
+pub fn ProductionServiceRegistry::process(Self, Int, ProductionSample) -> ProductionMonitorEvent?
+pub fn ProductionServiceRegistry::process_all(Self, Array[ProductionSample]) -> Array[ProductionMonitorEvent]
+pub fn ProductionServiceRegistry::register(Self, ProductionMonitor) -> Bool
+pub fn ProductionServiceRegistry::snapshots(Self) -> Array[ProductionMonitorSnapshot]
+pub fn ProductionServiceRegistry::status(Self) -> ProductionServiceStatus
+
+pub(all) enum ProductionServiceStatus {
+  StartingService
+  ReadyService
+  DegradedService
+  DrainingService
+  FailedService
+}
+
+pub struct ProductionSloObjective {
+  name : String
+  target : Double
+  window : Int64
+  burn_limit : Double
+  kind : ProductionSloWindowKind
+}
+pub fn ProductionSloObjective::burn_limit(Self) -> Double
+pub fn ProductionSloObjective::error_budget(Self) -> Double
+pub fn ProductionSloObjective::kind(Self) -> ProductionSloWindowKind
+pub fn ProductionSloObjective::name(Self) -> String
+pub fn ProductionSloObjective::new(String, target? : Double, window? : Int64, burn_limit? : Double, kind? : ProductionSloWindowKind) -> Self
+pub fn ProductionSloObjective::summary(Self) -> String
+pub fn ProductionSloObjective::target(Self) -> Double
+pub fn ProductionSloObjective::window(Self) -> Int64
+
+pub struct ProductionSloReport {
+  objective : ProductionSloObjective
+  total : Int
+  good : Int
+  bad : Int
+  compliance : Double
+  burn_rate : Double
+  remaining_budget : Double
+  breached : Bool
+}
+pub fn ProductionSloReport::bad(Self) -> Int
+pub fn ProductionSloReport::breached(Self) -> Bool
+pub fn ProductionSloReport::burn_rate(Self) -> Double
+pub fn ProductionSloReport::compliance(Self) -> Double
+pub fn ProductionSloReport::good(Self) -> Int
+pub fn ProductionSloReport::objective(Self) -> ProductionSloObjective
+pub fn ProductionSloReport::remaining_budget(Self) -> Double
+pub fn ProductionSloReport::summary(Self) -> String
+pub fn ProductionSloReport::total(Self) -> Int
+
+pub struct ProductionSloTracker {
+  objective : ProductionSloObjective
+  mut total : Int
+  mut good : Int
+  mut bad : Int
+  mut window_start : Int64?
+}
+pub fn ProductionSloTracker::bad(Self) -> Int
+pub fn ProductionSloTracker::good(Self) -> Int
+pub fn ProductionSloTracker::new(ProductionSloObjective) -> Self
+pub fn ProductionSloTracker::objective(Self) -> ProductionSloObjective
+pub fn ProductionSloTracker::observe(Self, Int64, Bool) -> Unit
+pub fn ProductionSloTracker::observe_event(Self, Int64, ProductionMonitorEvent) -> Unit
+pub fn ProductionSloTracker::report(Self) -> ProductionSloReport
+pub fn ProductionSloTracker::reset(Self) -> Unit
+pub fn ProductionSloTracker::total(Self) -> Int
+
+pub(all) enum ProductionSloWindowKind {
+  ShortSloWindow
+  LongSloWindow
+  RollingSloWindow
+}
+
+pub struct ProductionStackResult {
+  result : DetectionResult
+  votes : Array[ProductionDetectorVote]
+  agreement : Double
+  strongest : ProductionDetectorKind
+}
+pub fn ProductionStackResult::agreement(Self) -> Double
+pub fn ProductionStackResult::result(Self) -> DetectionResult
+pub fn ProductionStackResult::strongest(Self) -> ProductionDetectorKind
+pub fn ProductionStackResult::summary(Self) -> String
+pub fn ProductionStackResult::votes(Self) -> Array[ProductionDetectorVote]
+
+pub(all) enum ProductionStatTestKind {
+  MeanDifferenceTest
+  MedianDifferenceTest
+  PermutationShiftTest
+  BootstrapIntervalTest
+  CorrelationTest
+  VarianceRatioTest
+}
+
+pub struct ProductionStatTestResult {
+  kind : ProductionStatTestKind
+  statistic : Double
+  p_value : Double
+  effect : Double
+  interval : ProductionConfidenceInterval
+  significant : Bool
+}
+pub fn ProductionStatTestResult::effect(Self) -> Double
+pub fn ProductionStatTestResult::interval(Self) -> ProductionConfidenceInterval
+pub fn ProductionStatTestResult::kind(Self) -> ProductionStatTestKind
+pub fn ProductionStatTestResult::p_value(Self) -> Double
+pub fn ProductionStatTestResult::significant(Self) -> Bool
+pub fn ProductionStatTestResult::statistic(Self) -> Double
+pub fn ProductionStatTestResult::summary(Self) -> String
+
+pub struct ProductionStreamMetrics {
+  mut enqueued : Int
+  mut processed : Int
+  mut emitted : Int
+  mut rejected : Int
+  mut aggregates : Int
+  mut flushes : Int
+  mut last_timestamp : Int64
+}
+pub fn ProductionStreamMetrics::aggregates(Self) -> Int
+pub fn ProductionStreamMetrics::emitted(Self) -> Int
+pub fn ProductionStreamMetrics::enqueued(Self) -> Int
+pub fn ProductionStreamMetrics::flushes(Self) -> Int
+pub fn ProductionStreamMetrics::last_timestamp(Self) -> Int64
+pub fn ProductionStreamMetrics::new() -> Self
+pub fn ProductionStreamMetrics::processed(Self) -> Int
+pub fn ProductionStreamMetrics::rejected(Self) -> Int
+pub fn ProductionStreamMetrics::summary(Self) -> String
+pub fn ProductionStreamMetrics::throughput(Self, Int64) -> Double
+
+pub struct ProductionStreamProcessor {
+  queue : ProductionSampleQueue
+  bucketizer : ProductionBucketizer
+  monitor : ProductionMonitor
+  mut status : ProductionStreamStatus
+  metrics : ProductionStreamMetrics
+  mut started_at : Int64?
+}
+pub fn ProductionStreamProcessor::continue_processing(Self) -> Unit
+pub fn ProductionStreamProcessor::drain(Self) -> Array[ProductionMonitorEvent]
+pub fn ProductionStreamProcessor::elapsed(Self, Int64) -> Int64
+pub fn ProductionStreamProcessor::enqueue(Self, ProductionSample) -> Bool
+pub fn ProductionStreamProcessor::flush(Self) -> Array[ProductionMonitorEvent]
+pub fn ProductionStreamProcessor::metrics(Self) -> ProductionStreamMetrics
+pub fn ProductionStreamProcessor::monitor(Self) -> ProductionMonitor
+pub fn ProductionStreamProcessor::new(ProductionMonitor, queue_capacity? : Int, queue_policy? : ProductionBackpressurePolicy, bucket_interval? : Int64) -> Self
+pub fn ProductionStreamProcessor::pause(Self) -> Unit
+pub fn ProductionStreamProcessor::queue_length(Self) -> Int
+pub fn ProductionStreamProcessor::restart(Self, Int64) -> Unit
+pub fn ProductionStreamProcessor::start(Self, Int64) -> Unit
+pub fn ProductionStreamProcessor::status(Self) -> ProductionStreamStatus
+
+pub(all) enum ProductionStreamStatus {
+  StartingStream
+  RunningStream
+  PausedStream
+  DrainingStream
+  StoppedStream
+}
+
+pub struct ProductionSuppressionSchedule {
+  windows : Array[ProductionMaintenanceWindow]
+  mut suppressed : Int
+}
+pub fn ProductionSuppressionSchedule::active(Self, Int64) -> ProductionMaintenanceWindow?
+pub fn ProductionSuppressionSchedule::add(Self, ProductionMaintenanceWindow) -> Bool
+pub fn ProductionSuppressionSchedule::allow(Self, Int64) -> Bool
+pub fn ProductionSuppressionSchedule::new() -> Self
+pub fn ProductionSuppressionSchedule::suppressed(Self) -> Int
+pub fn ProductionSuppressionSchedule::windows(Self) -> Array[ProductionMaintenanceWindow]
+
+pub struct ProductionTelemetryCounters {
+  mut samples_received : Int
+  mut samples_rejected : Int
+  mut samples_imputed : Int
+  mut late_samples : Int
+  mut detector_updates : Int
+  mut alerts_emitted : Int
+  mut alerts_suppressed : Int
+  mut incidents_opened : Int
+  mut incidents_resolved : Int
+  mut report_exports : Int
+}
+pub fn ProductionTelemetryCounters::alerts_emitted(Self) -> Int
+pub fn ProductionTelemetryCounters::alerts_suppressed(Self) -> Int
+pub fn ProductionTelemetryCounters::detector_updates(Self) -> Int
+pub fn ProductionTelemetryCounters::incidents_opened(Self) -> Int
+pub fn ProductionTelemetryCounters::incidents_resolved(Self) -> Int
+pub fn ProductionTelemetryCounters::late_samples(Self) -> Int
+pub fn ProductionTelemetryCounters::new() -> Self
+pub fn ProductionTelemetryCounters::observe_export(Self) -> Unit
+pub fn ProductionTelemetryCounters::observe_incident(Self, Bool, Bool) -> Unit
+pub fn ProductionTelemetryCounters::observe_result(Self, DetectionResult, Bool) -> Unit
+pub fn ProductionTelemetryCounters::observe_sample(Self, ProductionSample, Bool) -> Unit
+pub fn ProductionTelemetryCounters::report_exports(Self) -> Int
+pub fn ProductionTelemetryCounters::samples_imputed(Self) -> Int
+pub fn ProductionTelemetryCounters::samples_received(Self) -> Int
+pub fn ProductionTelemetryCounters::samples_rejected(Self) -> Int
+pub fn ProductionTelemetryCounters::summary(Self) -> String
+
+pub struct ProductionTelemetryExporter {
+  options : ProductionExportOptions
+  mut stats : ProductionExportStats
+}
+pub fn ProductionTelemetryExporter::export_batch(Self, ProductionExportBatch) -> String
+pub fn ProductionTelemetryExporter::export_csv(Self, Array[ProductionExportRecord]) -> String
+pub fn ProductionTelemetryExporter::export_json_lines(Self, Array[ProductionExportRecord]) -> String
+pub fn ProductionTelemetryExporter::export_markdown(Self, Array[ProductionExportRecord]) -> String
+pub fn ProductionTelemetryExporter::export_prometheus(Self, Array[ProductionExportRecord]) -> String
+pub fn ProductionTelemetryExporter::export_summary(Self, Array[ProductionExportRecord]) -> String
+pub fn ProductionTelemetryExporter::new(options? : ProductionExportOptions) -> Self
+pub fn ProductionTelemetryExporter::options(Self) -> ProductionExportOptions
+pub fn ProductionTelemetryExporter::reset_stats(Self) -> Unit
+pub fn ProductionTelemetryExporter::stats(Self) -> ProductionExportStats
+
+pub struct ProductionThresholdController {
+  scores : DoubleWindow
+  target_alert_rate : Double
+  minimum_threshold : Double
+  maximum_threshold : Double
+  hysteresis : Double
+  mut threshold : Double
+  mut updates : Int
+}
+pub fn ProductionThresholdController::new(window_size? : Int, target_alert_rate? : Double, minimum_threshold? : Double, maximum_threshold? : Double, hysteresis? : Double) -> Self
+pub fn ProductionThresholdController::push(Self, Double) -> Double
+pub fn ProductionThresholdController::reset(Self) -> Unit
+pub fn ProductionThresholdController::summary(Self) -> String
+pub fn ProductionThresholdController::threshold(Self) -> Double
+pub fn ProductionThresholdController::updates(Self) -> Int
+
+pub struct ProductionThresholdCost {
+  false_positive : Double
+  false_negative : Double
+  alert_volume : Double
+}
+pub fn ProductionThresholdCost::alert_volume(Self) -> Double
+pub fn ProductionThresholdCost::false_negative(Self) -> Double
+pub fn ProductionThresholdCost::false_positive(Self) -> Double
+pub fn ProductionThresholdCost::new(false_positive? : Double, false_negative? : Double, alert_volume? : Double) -> Self
+pub fn ProductionThresholdCost::score(Self, ProductionConfusionMatrix) -> Double
+
+pub struct ProductionThresholdSelection {
+  threshold : Double
+  matrix : ProductionConfusionMatrix
+  objective : Double
+  strategy : String
+}
+pub fn ProductionThresholdSelection::matrix(Self) -> ProductionConfusionMatrix
+pub fn ProductionThresholdSelection::objective(Self) -> Double
+pub fn ProductionThresholdSelection::strategy(Self) -> String
+pub fn ProductionThresholdSelection::threshold(Self) -> Double
+
+pub struct ProductionTimeWindow {
+  capacity : Int
+  values : Array[ProductionSample]
+  mut start_index : Int
+  mut length : Int
+  mut dropped : Int
+}
+pub fn ProductionTimeWindow::capacity(Self) -> Int
+pub fn ProductionTimeWindow::clear(Self) -> Unit
+pub fn ProductionTimeWindow::dropped(Self) -> Int
+pub fn ProductionTimeWindow::first(Self) -> ProductionSample?
+pub fn ProductionTimeWindow::get(Self, Int) -> ProductionSample?
+pub fn ProductionTimeWindow::is_empty(Self) -> Bool
+pub fn ProductionTimeWindow::is_full(Self) -> Bool
+pub fn ProductionTimeWindow::last(Self) -> ProductionSample?
+pub fn ProductionTimeWindow::length(Self) -> Int
+pub fn ProductionTimeWindow::new(capacity? : Int) -> Self
+pub fn ProductionTimeWindow::outlier_count(Self, z_limit? : Double) -> Int
+pub fn ProductionTimeWindow::push(Self, ProductionSample) -> ProductionSample?
+pub fn ProductionTimeWindow::rolling_change(Self, Int) -> Double
+pub fn ProductionTimeWindow::summary(Self) -> ProductionWindowSummary
+pub fn ProductionTimeWindow::timestamps(Self) -> Array[Int64]
+pub fn ProductionTimeWindow::to_array(Self) -> Array[ProductionSample]
+pub fn ProductionTimeWindow::values(Self) -> Array[Double]
+
+pub(all) enum ProductionTransformKind {
+  IdentityTransform
+  ClipTransform
+  DifferenceTransform
+  Log1pTransform
+  SqrtTransform
+  ZScoreTransform
+  RobustZTransform
+  DetrendTransform
+  SmoothTransform
+  WinsorizeTransform
+  SeasonalRemoveTransform
+  RateTransform
+}
+
+pub struct ProductionTransformSpec {
+  kind : ProductionTransformKind
+  parameter_a : Double
+  parameter_b : Double
+  integer_parameter : Int
+}
+pub fn ProductionTransformSpec::integer_parameter(Self) -> Int
+pub fn ProductionTransformSpec::kind(Self) -> ProductionTransformKind
+pub fn ProductionTransformSpec::new(ProductionTransformKind, parameter_a? : Double, parameter_b? : Double, integer_parameter? : Int) -> Self
+pub fn ProductionTransformSpec::parameter_a(Self) -> Double
+pub fn ProductionTransformSpec::parameter_b(Self) -> Double
+pub fn ProductionTransformSpec::summary(Self) -> String
+
+pub struct ProductionWindowConfig {
+  reorder_capacity : Int
+  allowed_lateness : Int64
+  aggregate_size : Int
+  retention_points : Int
+  maximum_gap : Int64?
+  deduplicate_timestamps : Bool
+}
+pub fn ProductionWindowConfig::aggregate_size(Self) -> Int
+pub fn ProductionWindowConfig::allowed_lateness(Self) -> Int64
+pub fn ProductionWindowConfig::deduplicate_timestamps(Self) -> Bool
+pub fn ProductionWindowConfig::maximum_gap(Self) -> Int64?
+pub fn ProductionWindowConfig::new(reorder_capacity? : Int, allowed_lateness? : Int64, aggregate_size? : Int, retention_points? : Int, maximum_gap? : Int64?, deduplicate_timestamps? : Bool) -> Self
+pub fn ProductionWindowConfig::reorder_capacity(Self) -> Int
+pub fn ProductionWindowConfig::retention_points(Self) -> Int
+
+pub(all) enum ProductionWindowFunction {
+  QueryMean
+  QuerySum
+  QueryMinimum
+  QueryMaximum
+  QueryMedian
+  QueryP95
+  QueryCount
+  QueryRate
+  QueryChange
+}
+
+pub struct ProductionWindowSummary {
+  start_timestamp : Int64
+  end_timestamp : Int64
+  count : Int
+  valid_count : Int
+  imputed_count : Int
+  late_count : Int
+  sum : Double
+  mean : Double
+  variance : Double
+  minimum : Double
+  maximum : Double
+  median : Double
+  first : Double
+  last : Double
+}
+pub fn ProductionWindowSummary::count(Self) -> Int
+pub fn ProductionWindowSummary::empty() -> Self
+pub fn ProductionWindowSummary::end(Self) -> Int64
+pub fn ProductionWindowSummary::first(Self) -> Double
+pub fn ProductionWindowSummary::has_imputation(Self) -> Bool
+pub fn ProductionWindowSummary::imputed_count(Self) -> Int
+pub fn ProductionWindowSummary::last(Self) -> Double
+pub fn ProductionWindowSummary::late_count(Self) -> Int
+pub fn ProductionWindowSummary::maximum(Self) -> Double
+pub fn ProductionWindowSummary::mean(Self) -> Double
+pub fn ProductionWindowSummary::median(Self) -> Double
+pub fn ProductionWindowSummary::minimum(Self) -> Double
+pub fn ProductionWindowSummary::quality_ratio(Self) -> Double
+pub fn ProductionWindowSummary::range(Self) -> Double
+pub fn ProductionWindowSummary::slope(Self) -> Double
+pub fn ProductionWindowSummary::start(Self) -> Int64
+pub fn ProductionWindowSummary::sum(Self) -> Double
+pub fn ProductionWindowSummary::valid_count(Self) -> Int
+pub fn ProductionWindowSummary::variance(Self) -> Double
+
 pub struct ProjectionDetector {
   weights : Array[Double]
   mut baseline : Double
@@ -1089,6 +3524,13 @@ pub struct RankShiftDetector {
 }
 pub fn RankShiftDetector::new(window_size? : Int, threshold? : Double) -> Self
 pub fn RankShiftDetector::update(Self, Double) -> DetectionResult
+
+pub(all) enum RecoveryAction {
+  KeepOpen
+  AutoResolve
+  RequireAcknowledgement
+  Escalate
+}
 
 pub struct RecoveryPlan {
   severity : AlertSeverity
