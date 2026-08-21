@@ -26,16 +26,14 @@ moon add Zy789kl/moon-change-point
 Use a detector through the public package API:
 
 ```moonbit nocheck
+///|
 import {
   "Zy789kl/moon-change-point" @cp,
 }
 
+///|
 fn main {
-  let detector = @cp.Cusum::new(
-    target_mean=0.0,
-    control_limit=5.0,
-    drift=0.5,
-  )
+  let detector = @cp.Cusum::new(target_mean=0.0, control_limit=5.0, drift=0.5)
   let result = detector.update_result(2.0, index=1)
   println(result.summary())
 }
