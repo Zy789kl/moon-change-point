@@ -97,4 +97,4 @@ GitHub Actions installs the latest stable MoonBit toolchain and runs format, war
 
 Apache-2.0. See [LICENSE](LICENSE).
 
-The published package is available as [`Zy789kl/moon-change-point`](https://mooncakes.io/packages/Zy789kl/moon-change-point), and the source repository is [github.com/Zy789kl/moon-change-point](https://github.com/Zy789kl/moon-change-point).
+The published package is available on [Mooncakes](https://skills.mooncakes.io/skills/Zy789kl/moon-change-point@0.3.0/cmd/main) as `Zy789kl/moon-change-point@0.3.0`, and the source repository is [github.com/Zy789kl/moon-change-point](https://github.com/Zy789kl/moon-change-point).
